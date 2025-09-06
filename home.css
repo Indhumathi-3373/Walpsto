@@ -1,0 +1,246 @@
+* {
+    margin: 0%;
+    padding: 0%;
+    background-color: rgb(0, 0, 0);
+}
+
+#h1,
+#h2,
+#h22 {
+    position: relative;
+    margin-top: 2%;
+    font-family: "Jim Nightshade", cursive;
+    font-weight: 400;
+    font-size: xx-large;
+    font-style: normal;
+    display: inline-flex;
+    margin-left: 3%;
+    color: white;
+    justify-content: space-between;
+}
+
+#h2 {
+    padding-left: 6%;
+}
+
+#h22 {
+    margin-left: 8%;
+}
+
+#acc,
+#me,
+#home {
+    display: inline-block;
+    background-color: white;
+    outline: none;
+    padding: 10px;
+    border-radius: 8px;
+}
+
+#top button {
+    margin-left: 8%;
+}
+
+#home {
+    padding: 10px;
+    width: 70px;
+}
+
+#home:hover,
+#acc:hover,
+#me:hover {
+    transform: scale(1.09);
+    transition: 0.1s ease;
+    background-color: black;
+    box-shadow: 0px 0px 20px rgb(11, 163, 210);
+    color: white;
+    border-color: rgb(39, 188, 234);
+}
+
+#sec1 {
+    display: flex;
+    justify-content: space-around;
+    position: relative;
+}
+
+#card1,
+#card2 {
+    gap: 23px;
+    position: relative;
+    display: inline-flex;
+    border: 2px solid rgb(255, 255, 255);
+    width: 50%;
+    height: 100%;
+    margin: 3%;
+}
+
+#text {
+    margin-top: 3%;
+    color: white;
+    font-size: large;
+    max-width: 270px;
+    font-weight: 90;
+}
+
+#img1 {
+    width: 50vh;
+    left: 0%;
+}
+
+#img2 {
+    width: 49vh;
+    height: 50vh;
+}
+
+#sec1 div {
+    display: flex;
+    flex-direction: column;
+}
+
+#btn1,
+#btn2 {
+    border-radius: 5px;
+    color: black;
+    background-color: white;
+    margin-top: 30%;
+    padding: 10px;
+    width: 100px;
+    margin-left: 30%;
+}
+
+#sec1 button:hover {
+    box-shadow: 0px 0px 10px rgb(11, 163, 210);
+    background-color: black;
+    color: white;
+    transform: scale(1.10);
+    transition: 0.2s ease-in-out;
+    border-color: rgba(6, 119, 180, 0.94);
+}
+
+#h11 {
+    color: white;
+    text-align: center;
+    padding: 2%;
+    animation: move 4s ease infinite;
+}
+
+@keyframes move {
+    from {
+        transform: scale(0);
+        opacity: 0;
+    }
+
+    to {
+        transform: scale(500px);
+        opacity: 1;
+    }
+}
+
+#ah2 {
+    text-align: center;
+    color: white;
+    font-size: xx-large;
+}
+
+#border {
+    border: 1px solid white;
+    margin-left: 20%;
+    margin-right: 50%;
+    margin-top: 10%;
+    padding: 3%;
+}
+
+#txt {
+    margin-left: 38%;
+    font-size: xx-large;
+    font-family: "Jim Nightshade", cursive;
+    font-style: normal;
+    color:white;
+}
+
+#line {
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+    color: white;
+    font: 2rem system-ui, sans-serif;
+}
+
+#line::before,
+#line::after {
+    content: "";
+    height: 1.5px;
+    flex: 1;
+    background: currentColor;
+}
+#sec2 {
+    overflow-y: auto;
+    height: 100vh;
+}#txt1{ 
+    color:white;
+    font-size: large;
+}
+    
+#indhu{
+    border-radius: 100%;
+    width:20%;
+    height:20%;
+    box-shadow: 0px 1px 1px 7px rgba(211, 208, 208, 0.299);
+}
+#indhu:hover{
+    transform: scale(1.05);
+    box-shadow: 0px 0px 26px rgb(242, 250, 2);
+    border-color: rgb(251, 255, 0);
+}
+ul{
+    margin-left: 6%;
+    margin-top:2%;
+}h3{
+    color:white;
+    text-align: center;
+    font-size: x-large;
+    font-weight: 100;
+}#card1:hover,#card2:hover{
+    box-shadow: 0px 0px 15px rgb(192, 4, 129);
+    border-color: rgb(194, 11, 118);
+}#ab{
+    display: inline-flex;
+    gap:25px;
+    margin:3%;
+}#h{
+    color:white;
+    margin-left:47%;
+}#feed input{
+    margin-left: 40%;
+    background-color: white;
+    width:20%;
+    outline:none;
+    padding:5px;
+    border-radius: 5px;
+}#f_feed{
+    height: 60px;
+    padding-top: 0;
+}#f_sub{
+    margin-left:48.5%;
+    color:rgb(0, 0, 0);
+    background-color: white;
+    padding:9px;
+    border-radius: 5px;
+}#f_sub:hover{
+    background-color: black;
+    color: white;
+    box-shadow: 0px 0px 10px rgb(246, 0, 164);
+    border-color: rgb(255, 0, 153);
+}#feed input:hover{
+    background-color: black;
+    color: white;
+    box-shadow: 0px 0px 10px rgb(255, 0, 0);
+    border-color: rgb(255, 0, 0);
+}
+a{display:inline-flex;
+    margin-top:2%;
+}#img3{
+    margin-left:45%;
+}a:hover{
+    color:red;
+}

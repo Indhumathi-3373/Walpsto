@@ -1,0 +1,92 @@
+*{
+    margin:0;
+    padding:o;
+    background-color:black;
+}#body1{display:inline-block;
+    position: relative;
+    text-align: center;
+    color:white;
+    border: 3px solid transparent;
+    padding:3%;
+    margin-top:13%;
+    margin-left:37%;
+    margin-right: 37%;
+}@property --angle{/*css variable not allowed to animate so that we use thi property*/ 
+    syntax:"<angle>";
+    initial-value:0deg;
+    inherits: false;
+}
+#body1:after,#body1::before{/* why both are in single line means we are using same code for before and after*/
+    
+    content: "";
+    position:absolute;
+    width:100%;
+    height:100%;
+    /*background: conic-gradient(transparent 70%,blue); we can control length of the color using transparent*/
+    background:conic-gradient(from var(--angle),transparent ,rgb(18, 236, 236),#fa72ea,#a7106d,#1dcbee,#a7106d,#fa72ea,#72d6fa,#a7106d);/*u can  use also conic-gradient that means mixing of more color*/
+    top:50%;
+    left:50%;
+    translate: -50% -50%;/*for covering the form box*/
+    z-index: -1;/*puting behind the form*/
+    padding:5px;/*show given color in the border*/
+    border-radius:2px;
+    animation: spin 5s linear infinite;
+}#body1::before{
+    filter: blur(1.6rem);/*for glowing around the border*/
+    opacity:0.3;
+}@keyframes spin{
+    from{/*the element stays in its static place while rotating*/
+        --angle:0deg;
+    }to{
+        --angle:360deg;
+    }
+}#input1{
+    display:inline-block;
+    position:relative;
+    border-color:white;
+    text-align: center;
+    padding:6px;
+    outline:none;
+    width:83%;
+    background-color: white;
+    border-radius: 6px;
+    /*EYE-icon*/content:"u+1F441";
+    cursor: pointer;
+}#input1:focus{
+    outline:none;
+    color:black;
+    cursor:none;
+}#l_sub{
+    display: inline-block;
+    position: relative;
+    background-color: white;
+    color:black;
+    border:none;
+    width:60px;
+    height:30px;
+    border-radius:6px;
+    margin-right: 9%;
+ }
+ #l_sub:hover{
+     background:conic-gradient(rgb(18, 236, 236),#fa72ea,#d94fa4,#1dcbee);
+    transform: scale(1.05);
+    color:white;
+     cursor:pointer;
+}.c_btn{
+    display: inline-block;
+    color:rgb(74, 141, 236);
+    border:none;
+    text-decoration: underline;
+    }.c_btn:hover{
+    color:red;
+     cursor:pointer;
+}#f_btn{
+    display: inline-block;
+    margin-left:5%;
+    color:rgb(74, 141, 236);
+    border:none;
+    margin-right: 70px;
+}#f_btn:hover{
+     color:red;
+    cursor:pointer;
+}
