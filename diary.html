@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Personal Diary</title>
+ <link rel="stylesheet" href="diary.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Jim+Nightshade&family=Tangerine:wght@400;700&display=swap"
+        rel="stylesheet">
+</head>
+<body><div>
+  <!-- Quote -->
+  <div class="quote">"This  is  the  place  where  silence  speaks"</div>
+
+  <!-- Dropdown -->
+  <div class="dropdown">
+    <button class="dropbtn">☰</button>
+    <div class="dropdown-content">
+      <a href="home.html">Home</a>
+      <a href="#">About Me</a>
+      <a href="#">Logout</a>
+    </div>
+  </div></div><br><hr>
+  <!-- Cards -->
+  <div class="cards" id="cards"></div>
+
+  <!-- Add Button -->
+  <div class="add-btn" onclick="openEditor()">+</div>
+
+  <!-- Editor Page -->
+  <div class="editor" id="editor">
+    <input type="text" id="title" placeholder="Enter title">
+    <textarea id="content" rows="8" placeholder="Start writing..."></textarea>
+    <button onclick="saveEntry()">Save</button>
+  </div>
+</body>
+</html>

@@ -219,7 +219,16 @@ ul{
     border-radius: 5px;
 }#f_feed{
     height: 60px;
-    padding-top: 0;
+    margin-left:40%;
+    width:20.6%;
+    outline:none;
+    background-color: white;
+    border-radius: 5px;
+    overflow-y:hidden ;
+    scrollbar-width: none;
+    resize: none;
+}textarea{
+ padding-left:4px;   
 }#f_sub{
     margin-left:48.5%;
     color:rgb(0, 0, 0);
@@ -231,14 +240,14 @@ ul{
     color: white;
     box-shadow: 0px 0px 10px rgb(246, 0, 164);
     border-color: rgb(255, 0, 153);
-}#feed input:hover{
+}#feed input:hover,#f_feed:hover{
     background-color: black;
     color: white;
     box-shadow: 0px 0px 10px rgb(255, 0, 0);
     border-color: rgb(255, 0, 0);
 }
 a{display:inline-flex;
-    margin-top:2%;
+    margin-top:1%;
 }#img3{
     margin-left:45%;
 }a:hover{

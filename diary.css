@@ -1,0 +1,79 @@
+body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background-color: #000;
+      color: #fff;
+    }
+
+    /* Quote */
+    .quote {
+      position: relative;
+      display:flex;
+      top: 15px;
+      left: 4%;
+      font-size: 35px;
+      font-style: normal;
+      font-family: "Jim Nightshade", cursive;
+    word-spacing: 6px;
+    }
+    /* Dropdown */
+    .dropdown {
+      position: absolute;
+      top: 15px;
+      right: 30px;
+    }
+
+    .dropbtn {
+      background-color: #333;
+      color: white;
+      padding: 15px;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+
+    .dropdown-content {
+      display: none;
+      position: absolute;
+      right: 0;
+      background-color: #222;
+      min-width: 120px;
+      border-radius: 5px;
+      box-shadow: 0px 8px 16px rgba(0,0,0,0.4);
+    }
+
+    .dropdown-content a {
+      color: white;
+      padding: 10px;
+      text-decoration: none;
+      display: block;
+    }
+
+    .dropdown-content a:hover {
+      background-color: #444;
+    }
+
+    .dropdown:hover .dropdown-content {
+      display: block;
+    }
+
+    /* Floating Plus Button */
+    .add-btn {
+      position: fixed;
+      bottom: 20px;
+      right: 50px;
+      width: 60px;
+      height: 60px;
+      background-color: #343232;
+      color: white;
+      border-radius: 50%;
+      font-size: 32px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      box-shadow: 0px 4px 8px rgba(0,0,0,0.6);
+    }.add-btn:hover{
+      box-shadow: 0px 0px 20px rgb(230, 7, 7);
+      border-color: rgb(255, 21, 0);
+    }
