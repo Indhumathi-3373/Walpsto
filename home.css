@@ -44,6 +44,7 @@
 #home {
     padding: 10px;
     width: 50px;
+    text-decoration: none;
 }
 
 #home:hover,

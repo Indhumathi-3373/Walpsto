@@ -1,0 +1,59 @@
+*{
+    margin:0;
+    padding:0;
+    background-color: black;
+}body{
+    display:inline-flex;
+    position: relative;
+    color: white;
+    border:1px solid transparent;
+    padding:4%; 
+    left:35%;
+    margin-top:12%;
+}@property --angle{/*css variable not allowed to animate so that we use thi property*/ 
+    syntax:"<angle>";
+    initial-value:0deg;
+    inherits: false;
+}body::after,body::before{
+content:'';
+position:absolute;
+width:100%;
+height:100%;
+background:conic-gradient(from var(--angle),transparent 70%,blue) ;
+translate:-50% -50%;
+left:50%;
+top:50%;
+padding:4px;
+border-radius: 3px;
+animation: spin 4s linear infinite;
+z-index:-1;
+}body::before{
+    filter:blur(1.6rem);
+    opacity:0.3;
+}@keyframes spin{
+    from{/*the element stays in its static place while rotating*/
+        --angle:0deg;
+    }to{
+        --angle:360deg;
+    }
+}input{
+    background-color: white;
+    padding:6px;
+    width:270px;
+    border-radius: 5px;
+    outline:none;
+    text-align: center;
+}input:hover{
+    box-shadow: 0px 0px 10px rgb(249, 8, 233);
+    background-color: black;
+    cursor: pointer;
+    color:white;
+}button{
+    background-color: rgb(21, 21, 226);
+    color:white;
+    padding:4%;
+    border-radius: 6px;
+}button:hover{
+    background-color: rgb(60, 60, 182);
+    color:white;
+}

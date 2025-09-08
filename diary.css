@@ -77,10 +77,10 @@ body {
       box-shadow: 0px 4px 8px rgba(0,0,0,0.6);
     }.add-btn:hover{
       box-shadow: 0px 0px 20px rgb(230, 7, 7);
-      border-color: rgb(255, 21, 0);
-    }#car{
+      border-color: rgb(255, 21, 0);}
+     #cards{
+      display:none; 
       position:absolute;
-      display:flex;
       background-color: #131111;
       opacity:1;
       width:100%;
@@ -89,7 +89,6 @@ body {
       top:0%;
       overflow-y:auto;
     }#date{
-      display:flex;
       position:absolute;
       color:rgb(255, 255, 255);
       left:2%;
@@ -102,13 +101,13 @@ body {
       outline:none;
     }#date label{
       margin-top:25px;
-    }#space{
+    } textarea{
       position:absolute;
       top:10%;
       left:3%;
-    }#space textarea{
+    } textarea{
       width:190vh;
-      height:80vh;
+      height:76vh;
       padding-left:15px;
       padding-top:5px;
       padding-right:15px;
@@ -118,7 +117,29 @@ body {
        overflow-y:scroll;
        flex-wrap: wrap;
        cursor: pointer;
-    }#space:hover{
+    }textarea:hover{
       box-shadow: 0px 0px 10px white;
       scroll-behavior: smooth;
+    }#save{
+      position:absolute;
+      bottom:2.5%;
+      left:55%;
+      background-color: rgb(3, 0, 190);
+      color:white;
+      padding:5px;
+      width:5%;
+      border-radius:7px;
+    }#save:hover{
+      background-color: rgb(35, 32, 219);
+      transform:scale(1.05);
+    }#close{
+      position:relative;
+      top:93.5%;
+      left:47%;
+      padding:5px;
+      width:5%;
+      border-radius: 5px;
+    }#close:hover{
+      transform: scale(1.05);
+      background-color: rgb(207, 199, 187);
     }
