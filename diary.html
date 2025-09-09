@@ -33,7 +33,7 @@
         <label>Date :</label>
         <input type="date" required>
       </div>
-          <lable style="color:rgb(255, 255, 255);left:80%;position:absolute;margin-top:1.7%;">Day :</lable>
+          <label style="color:rgb(255, 255, 255);left:80%;position:absolute;margin-top:1.7%;">Day :</label>
           <select name="days" style="width: 15%;padding: 5px;outline:none;right:0;position:absolute;top:3%;right:2%;border-radius: 4px;">
             <option value="mday">Sunday</option>
             <option value="mday">Monday</option>
@@ -51,12 +51,14 @@
   <!-- Add Button -->
   <div class="add-btn" onclick="openEditor()">+</div>
 </body><script>
-  var plus=document.getElementById("cards")
-  function openEditor(){
-   cards.style.display="block";
-}
-  function close(){
-    cards.style.display="none";
-  }
+const btn = document.getElementById("close");
+const div  = document.getElementById("cards");
+const btn2=document.querySelector(".add-btn");
+btn2.addEventListener("click",()=>{
+  div.style.display="block"
+})
+btn.addEventListener("click",()=>{
+    div.style.display = "none"
+})
 </script>
 </html>
