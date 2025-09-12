@@ -117,6 +117,7 @@ body {
        overflow-y:scroll;
        flex-wrap: wrap;
        cursor: pointer;
+       resize:none;
     }textarea:hover{
       box-shadow: 0px 0px 10px white;
       scroll-behavior: smooth;

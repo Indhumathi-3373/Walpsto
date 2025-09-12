@@ -35,6 +35,8 @@
     outline: none;
     padding: 10px;
     border-radius: 8px;
+    text-decoration: none;
+    color:rgb(0, 0, 0);
 }
 
 #top a {
@@ -44,20 +46,18 @@
 #home {
     padding: 10px;
     width: 50px;
-    text-decoration: none;
 }
 
 #home:hover,
 #acc:hover,
 #me:hover {
     transform: scale(1.09);
-    transition: 0.1s ease;
+    transition: 0.1s;
     background-color: black;
     box-shadow: 0px 0px 20px rgb(11, 163, 210);
     color: white;
     border-color: rgb(39, 188, 234);
 }
-
 #sec1 {
     display: flex;
     justify-content: space-around;
@@ -251,6 +251,7 @@ ul{
     position:relative;
     margin-top:1%;
     left:45%;
+    color:blue;
 }
 #a:hover{
     color:red;

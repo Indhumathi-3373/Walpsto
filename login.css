@@ -51,7 +51,8 @@
     border-radius: 6px;
     /*EYE-icon*/content:"u+1F441";
     cursor: pointer;
-}#email:focus,#password:hover{
+}
+#email:focus,#password:hover{
     outline:none;
     color:black;
     cursor:none;
