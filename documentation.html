@@ -7,19 +7,17 @@
   <script src="https://cdn.tailwindcss.com"></script>
 </head>
 <body class="bg-black text-white min-h-screen relative">
-
   <!-- Top Navbar -->
   <div class="flex justify-between items-center p-4">
     <!-- Quote -->
     <p class="text-3xl italic">"Keep it secret !! Make it perfect !!"</p>
-
     <!-- Dropdown -->
     <div class="relative inline-block text-left">
       <button id="menu-button" class=" bg-zinc-700 text-white px-4 py-2 rounded-md focus:outline-none mr-4">
        ☰
-      </button>
-      <div id="dropdown" class="hidden absolute right-0 mt-2 w-40 bg-zinc-800 rounded-md shadow-lg">
-        <a href="#" class="block px-4 py-2 text-white hover:bg-zinc-700">Home</a>
+       </button>
+       <div id="dropdown" class="hidden absolute right-0 mt-2 w-40 bg-zinc-800 rounded-md shadow-lg">
+        <a href="home.html" class="block px-4 py-2 text-white hover:bg-zinc-700">Home</a>
         <a href="#" class="block px-4 py-2 text-white hover:bg-zinc-700">About</a>
         <a href="#" class="block px-4 py-2 text-white hover:bg-zinc-700">Logout</a>
       </div>
@@ -27,34 +25,32 @@
   </div><div>
     <hr class="border-t border-white-700">
   </div>
-
   <!-- Floating Button -->
   <div class="fixed bottom-6 right-6" id="plus">
     <button class="bg-blue-500 text-white w-14 h-14 rounded-full text-4xl flex items-center justify-center shadow-lg hover:bg-blue-600 mr-2">
       <span class="text-3xl leading-none">+</span>
     </button>
   </div><div id="files" class="mt-5 ml-5 hidden">
-   <input type="file" id="file">
+  <input type="file" id="file">
 </div>
   <!-- Script for Dropdown -->
   <script>
     const button = document.getElementById('menu-button');
     const dropdown = document.getElementById('dropdown');
     const input=document.getElementById('files');
-    const plus=document.getElementById('plus')
+    const plus=document.getElementById('plus');
     button.addEventListener('click', () => {
       dropdown.classList.toggle('hidden');
     });
-
     // Close dropdown if clicked outside
-    window.addEventListener('click', function(e) {
+     window.addEventListener('click', function(e) {
       if (!button.contains(e.target) && !dropdown.contains(e.target)) {
         dropdown.classList.add('hidden');
       }
     });
   plus.addEventListener('click',()=>{
     input.classList.toggle('hidden');
-  })
+  });
   </script>
 </body>
 </html>
