@@ -63,10 +63,10 @@ body {
     .add-btn {
       position: fixed;
       bottom: 20px;
-      right: 50px;
-      width: 60px;
+      right: 40px;
+      width: 55px;
       height: 60px;
-      background-color: #343232;
+      background-color: #17bfed;
       color: white;
       border-radius: 50%;
       font-size: 32px;
@@ -76,8 +76,8 @@ body {
       cursor: pointer;
       box-shadow: 0px 4px 8px rgba(0,0,0,0.6);
     }.add-btn:hover{
-      box-shadow: 0px 0px 20px rgb(230, 7, 7);
-      border-color: rgb(255, 21, 0);}
+      box-shadow: 0px 0px 20px rgb(5, 176, 233);
+    }
      #cards{
       display:none; 
       position:absolute;
