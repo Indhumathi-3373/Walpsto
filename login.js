@@ -1,32 +1,29 @@
-function change(e) {
-    const email = document.getElementById("email");
-    const password = document.getElementById("password");
-    const error = document.getElementById("error");
-    const error1 = document.getElementById("error1");
-    // Clear previous error messages
-    error.textContent = "";
-    error1.textContent = "";
-    let valid = true;
-    // Email validation
-    if (!email.value) {
-        error.textContent = "*Please enter your email id";
-        error.style.color = "red";
-        valid = true;
+var emailinp=document.getElementById("email")
+const form =document.getElementById("formid")
+var passinp=document.getElementById("password")
+const errormsg=document.getElementById("error")
+const errormsg2=document.getElementById("error1")
+const forgot=document.getElementById("f_btn")
+const create=document.getElementsByClassName("c_btn")
+const emailRegex=/^[^\\s@]+@[^\\s@]+\\. [^\\s@]+$/;
+form.addEventListener("submit",(e)=>{
+    var email=emailinp.value.trim()
+    var password=passinp.value.trim()
+    if(emailinp.value==="" || emailRegex.test(email)){
+         errormsg.style.display="block"
+    }else{
+        errormsg.style.display="none"
     }
-    // Password validation
-    if (!password.value) {
-        error1.textContent = "*Please enter your password";
-        error1.style.color = "red";
-        valid = true;
-     if (password.value.length < 6) {
-        error1.textContent = "*Password must be at least 6 characters";
-        error1.style.color = "red";
-        valid = true;
-        if(password.value.length>=6){
-            error1.textContent="none";
-        }
-    }
-}
-    return valid;
-    e.preventDefault();
-}
+    if(password.length < 6){
+        errormsg2.style.display="block" 
+    }else{
+        errormsg2.style.display="none"
+    }e.preventDefault();
+})
+emailinp.addEventListener("focus",(e)=>{
+    errormsg.style.display="none"
+})
+passinp.addEventListener("focus",(e)=>{
+    errormsg2.style.display="none"
+})
+

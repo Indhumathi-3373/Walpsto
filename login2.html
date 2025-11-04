@@ -7,18 +7,23 @@
     <link rel="stylesheet" href="./stylelogin1.css">
 </head>
 
-<body><body id="body1">
-    <span >
-            <h1 class="h1 ">Preserve your legacy !!</h1><br>
-            <form id="formid">
-                <h2>Login Here</h2><br> <br>
-                <input id="input1" type="email" placeholder="enter your email id"><br><br>
-                <input id="input1" type="password" placeholder="enter your password "><br><br><br>
-                <button id="f_btn">Forgot Password?</button>
-                <button onclick="change()" id="l_sub">Login</button><br><br>
-                <text style=>Don't have an account? <button class="c_btn">Create Account</button></text>
-            </form>
-        </span></body>
+<body>
+
+    <body id="body1">
+
+        <h1 class="h1 ">Preserve your legacy !!</h1><br>
+        <form id="formid">
+            <h2>Login Here</h2><br> <br>
+            <input id="email2" type="email" placeholder="enter your email id"><br>
+            <div id="error">please enter valid email</div><br>
+            <input id="input1" type="password" placeholder="enter your password "><br>
+            <div id="error1">password must be atleast 6 characters</div><br>
+            <button id="f_btn" type="button">Forgot Password?</button>
+            <button id="l_sub" type="submit">Login</button><br><br>
+            <text style=>Don't have an account? <button class="c_btn" type="button">Create Account</button></text>
+        </form>
+        <script src="./login2.js"></script>
+    </body>
 </body>
 
 </html>
