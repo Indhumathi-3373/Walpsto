@@ -38,7 +38,7 @@
     }to{
         --angle:360deg;
     }
-}#input1{
+}#input1,#email2{
     display:inline-block;
     position:relative;
     border-color:white;
@@ -50,7 +50,7 @@
     border-radius: 6px;
     /*EYE-icon*/content:"u+1F441";
     cursor: pointer;
-}#input1:focus{
+}#input1:focus,#email2{
     outline:none;
     color:black;
     cursor:none;
@@ -87,4 +87,12 @@
 }#f_btn:hover{
      color:red;
     cursor:pointer;
+}#error{
+    color:red;
+    display:none;
+    margin-top:2%;
+}#error1{
+    color:red;
+    display:none;
+    margin-top:2%;
 }

@@ -89,4 +89,8 @@
 }#f_btn:hover{
      color:red;
     cursor:pointer;
+}#error,#error1{
+    color:red;
+    display:none;
+    margin-top:2%;
 }
