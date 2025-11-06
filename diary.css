@@ -143,4 +143,18 @@ body {
     }#close:hover{
       transform: scale(1.05);
       background-color: rgb(207, 199, 187);
+    }#subcard{
+      display:inline-grid;
+      padding:2%;
+      grid-template-columns: 1fr;
+    }#parent{
+      background-color: aliceblue;
+      border-radius: 9px;
+      padding:350%;
+      color:#000;
+    }#dot{
+    }#subcard:hover{
+      transform: scale(1.01);
+    }#dele{
+      
     }
