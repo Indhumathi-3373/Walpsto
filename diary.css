@@ -143,18 +143,19 @@ body {
     }#close:hover{
       transform: scale(1.05);
       background-color: rgb(207, 199, 187);
-    }#subcard{
+    }.subcard{
       display:inline-grid;
-      padding:2%;
+      padding:8%;
       grid-template-columns: 1fr;
-    }#parent{
-      background-color: aliceblue;
+      background-color: whitesmoke;
+      margin:1%;
       border-radius: 9px;
-      padding:350%;
       color:#000;
-    }#dot{
     }#subcard:hover{
       transform: scale(1.01);
-    }#dele{
-      
+    }#card-content{
+      color:#000;
+    }#btn-card{
+      background-color:transparent;
+      border: none;
     }
