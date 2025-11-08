@@ -2,23 +2,20 @@ const date = document.getElementById("date")
 const input = document.getElementById("content")
 const day = document.getElementById("day")
 const save = document.getElementById("save")
-const cards=document.getElementById("cards")
-const subcard=document.getElementsByClassName("subcard")
+const subcard=document.getElementById("subcard")
+const card=document.getElementById("cards")
 save.addEventListener("click", () => {
   if (input.value === "" || day.value === "" || date.value === "") {
     alert("please fill all the fields")
   }else{
-    cards.style.display="none"
+    card.style.display="none"
   const subcard = document.createElement("div")
-  subcard.className = "subcard";
+  subcard.setAttribute("class","container")
   subcard.innerHTML =`
-  <div id="card-content">${input}</div>
-  <div id="date-day">${date}|${day}</div>
-  <div id="btn-card">
+  <div id="dat">${date}|${day}</div>
   <button id="edit">📝</button>
-  <button id="delete">🗑️</button>
-  </div>
-`
+  <div id="p">${input}</div>
+  <button id="del">Delete</button>`
+subcard.append(subcard)
   }
-
 })

@@ -143,19 +143,28 @@ body {
     }#close:hover{
       transform: scale(1.05);
       background-color: rgb(207, 199, 187);
-    }.subcard{
-      display:inline-grid;
-      padding:8%;
-      grid-template-columns: 1fr;
-      background-color: whitesmoke;
+    }#subcard{
+      display: inline-block;
+      padding: 1%;
+      background-color: #fff;
       margin:1%;
-      border-radius: 9px;
-      color:#000;
-    }#subcard:hover{
-      transform: scale(1.01);
-    }#card-content{
-      color:#000;
-    }#btn-card{
-      background-color:transparent;
-      border: none;
+      border-radius: 3%;
+      width:15%;
+      color:#000
+    }#edit{
+      margin-left: 45%;
+     font-size: x-large;
+     background-color: transparent;
+     border:none;
+    }#edit:hover{
+      transform: scale(1.1);
+    }#dat{
+      display:inline-flex;
+    }#del{
+      margin-left:35%;
+      color:#ffffff;
+     background-color: black;
+     border-radius:5px;
+    }#del:hover{
+      transform: scale(1.1);
     }
