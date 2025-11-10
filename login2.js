@@ -13,9 +13,11 @@ form.addEventListener("submit", (e) => {
         errormsg.style.display="none"
     }if(pass.length<=6){
         errormsg2.style.display="block"
+    }if(pass.length>6 && emailinp.value != ""){
+       window.open("Documentation.html") 
     }e.preventDefault();
-    }
-)
+    } 
+    )
 emailinp.addEventListener("focus",(e)=>{
     errormsg.style.display="none"
 })

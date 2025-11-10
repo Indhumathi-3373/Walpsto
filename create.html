@@ -18,3 +18,27 @@
     </div>
 </body>
 </html>
+<!--<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>contact info</title>
+</head>
+<body><form method="post">
+    First name<input type="text" name="f"><br><br>
+    Last name:<input type="text" name="l"><br><br>
+    phone:<input type="number" name="p"><br><br>
+    Email Address:<input type="email" name="e"><br><br>
+    DOB:<input type="date" name="d"><br><br>
+    Nick name:<input type="text" name="n"><br><br>
+    <input type="submit" name="s" value="save"></form>
+  <? php
+  if(isset($_POST['s'])){
+    $c=mysqli_connect("localhost","root","","contact_db");
+    mysqli_query($c,"insert into contacts(first_name,last_name,phone,email,dob,nickname) values('$_POST[f]','$_POST[l]','$_POST[p]','$_POST[e]','$_POST[d]','$_POST[n]')");
+    echo "saved!";
+  }
+  ?>
+</body>
+</html>-->
