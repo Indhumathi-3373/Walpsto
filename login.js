@@ -14,11 +14,15 @@ form.addEventListener("submit",(e)=>{
     }else{
         errormsg.style.display="none"
     }
-    if(password.length < 6){
+    if(password.length <= 6){
         errormsg2.style.display="block" 
     }else{
         errormsg2.style.display="none"
-    }e.preventDefault();
+    }
+    if(password.length > 6 && emailinp.value !="" ){
+        window.open("diary.html")
+    }
+    e.preventDefault();
 })
 emailinp.addEventListener("focus",(e)=>{
     errormsg.style.display="none"
