@@ -2,6 +2,7 @@
     margin: 0%;
     padding: 0%;
     background-color: rgb(0, 0, 0);
+    
 }
 
 #h1,
@@ -26,10 +27,9 @@
 #h22 {
     margin-left: 8%;
 }
-
+#admin,
 #acc,
-#me,
-#home {
+#me{
     display: inline-block;
     background-color: white;
     outline: none;
@@ -41,14 +41,7 @@
 
 #top a {
     margin-left: 8%;
-}
-
-#home {
-    padding: 10px;
-    width: 42px;
-}
-
-#home:hover,
+}#admin:hover,
 #acc:hover,
 #me:hover {
     transform: scale(1.09);
@@ -122,7 +115,7 @@
     color: white;
     text-align: center;
     padding: 2%;
-    animation: move 4s ease infinite;
+    animation: move 4s ease;
 }
 
 @keyframes move {
@@ -175,8 +168,8 @@
     background: currentColor;
 }
 #sec2 {
-    overflow-y: auto;
-    height: 100vh;
+    overflow-y:auto;
+    height: 93vh;
 }#txt1{ 
     color:white;
     font-size: large;
