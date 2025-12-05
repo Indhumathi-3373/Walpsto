@@ -143,28 +143,67 @@ body {
     }#close:hover{
       transform: scale(1.05);
       background-color: rgb(207, 199, 187);
-    }#subcard{
-      display: inline-block;
-      padding: 1%;
-      background-color: #fff;
-      margin:1%;
-      border-radius: 3%;
-      width:15%;
-      color:#000
-    }#edit{
-      margin-left: 45%;
-     font-size: x-large;
-     background-color: transparent;
-     border:none;
-    }#edit:hover{
-      transform: scale(1.1);
-    }#dat{
-      display:inline-flex;
-    }#del{
-      margin-left:35%;
-      color:#ffffff;
-     background-color: black;
-     border-radius:5px;
-    }#del:hover{
-      transform: scale(1.1);
-    }
+    }/* Container holding all cards */
+#subcard {
+    display: inline-block;
+    flex-direction: column;
+    margin:1%;
+    
+}
+
+/* Each individual card */
+.wrapper {
+    background-color: #fff;
+    padding: 15px 20px;
+    border-radius: 10px;
+    box-shadow: 0px 3px 8px rgba(0,0,0,0.1);
+    position: relative;
+    display:inline-block;
+    flex-direction: column;
+    gap: 8px;
+}
+
+/* Date display */
+.entry-date {
+    font-size: 17px;
+    color: #060606;
+}
+
+/* User input content */
+.entry-content {
+    font-size: 14px;
+    color: #232121;
+}
+
+/* Buttons inside the card */
+.wrapper button {
+    cursor: pointer;
+    border: none;
+    padding: 5px 10px;
+    margin-top: 5px;
+    border-radius: 5px;
+    font-size: 12px;
+    width: fit-content;
+}
+
+/* Edit button styling */
+.wrapper .edit {
+    background-color:white;
+    border: none;
+    font-size: larger;
+}
+
+.wrapper .edit:hover {
+   transform: scale(1.05);
+}
+
+/* Delete button styling */
+.wrapper .del {
+    background-color: #ff4d4d;
+    color: white;
+    margin-left:50px;
+}
+
+.wrapper .del:hover {
+    background-color: #e60000;
+}
