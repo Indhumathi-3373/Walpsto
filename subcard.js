@@ -9,6 +9,7 @@ save.addEventListener("click", (e) => {
     alert("please fill all the fields")
   }else{
     card.style.display="none"
+    const subcard=document.createElement("div")
     /*const subcard = document.createElement("div")
   subcard.setAttribute("class","container")*/
   subcard.innerHTML =`
