@@ -5,10 +5,9 @@ const save = document.getElementById("save");
 const subcard = document.getElementById("subcard");
 const card = document.getElementById("cards");
 
-save.addEventListener("click", () => {
-  if (input.value === "" || day.value === "" || date.value === "") {
-    alert("Please fill all the fields");
-  } else {
+save.addEventListener("click", (e) => {
+  if (input.value !== "" ||!date.value !== "") {
+    
     // Creating wrapper div
     const wrapper = document.createElement("div");
     wrapper.classList.add("wrapper"); // use class instead of id
@@ -59,6 +58,10 @@ save.addEventListener("click", () => {
       subcard.removeChild(wrapper); // remove current entry to edit
       card.style.display = "block";
     });
-    card.style.display = "none"; // hide form after saving
+    // hide form after saving
+    card.style.display = "none";
+
+  } else {
+    alert("Please fill all the fields");
   }
 });
