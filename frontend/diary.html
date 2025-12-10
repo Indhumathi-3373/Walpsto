@@ -33,10 +33,10 @@
   <div id="cards">
     <div id="date">
       <label>Date :</label>
-      <input type="date" id="date" style="color: black;">
+      <input type="date" id="date" name="date" style="color: black;">
     </div>
     <label style="color:rgb(255, 255, 255);left:80%;position:absolute;margin-top:1.7%;">Day :</label>
-    <select name="days" id="day"
+    <select name="days" id="day" 
       style="width: 15%;padding: 5px;outline:none;right:0;position:absolute;top:3%;right:2%;border-radius: 4px;">
       <option value="mday">Sunday</option>
       <option value="mday">Monday</option>
@@ -46,7 +46,7 @@
       <option value="mday">Friday</option>
       <option value="mday">Saturday</option>
     </select>
-    <textarea id="content" placeholder="Start writing..."></textarea>
+    <textarea id="content" placeholder="Start writing..." name="textarea input"></textarea>
     <button id="close" onclick="close()">Cancel</button>
     <button id="save" onclick="save()">Save</button>
   </div>
