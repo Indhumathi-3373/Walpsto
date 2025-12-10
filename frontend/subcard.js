@@ -6,11 +6,11 @@ const subcard = document.getElementById("subcard");
 const card = document.getElementById("cards");
 
 save.addEventListener("click", (e) => {
-  if (input.value !== "" ||!date.value !== "") {
+  if (input.value.trim() !== "" || date.value.trim() !== "") {
     
     // Creating wrapper div
     const wrapper = document.createElement("div");
-    wrapper.classList.add("wrapper"); // use class instead of id
+    wrapper.classList.add("wrapper"); 
 
     // Edit button
     const edit = document.createElement("button");
@@ -58,9 +58,9 @@ save.addEventListener("click", (e) => {
       subcard.removeChild(wrapper); // remove current entry to edit
       card.style.display = "block";
     });
+
     // hide form after saving
     card.style.display = "none";
-
   } else {
     alert("Please fill all the fields");
   }
