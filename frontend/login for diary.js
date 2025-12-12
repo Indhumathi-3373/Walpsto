@@ -23,11 +23,16 @@ form.addEventListener("submit",(e)=>{
         window.open("diary.html")
     }
     e.preventDefault();
+
+    //sending details to backend
+
+    const 
+
 })
 emailinp.addEventListener("focus",(e)=>{
     errormsg.style.display="none"
 })
 passinp.addEventListener("focus",(e)=>{
     errormsg2.style.display="none"
-})
+});
 
