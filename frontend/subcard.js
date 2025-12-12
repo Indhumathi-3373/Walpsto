@@ -4,6 +4,15 @@ const day = document.getElementById("day");
 const save = document.getElementById("save");
 const subcard = document.getElementById("subcard");
 const card = document.getElementById("cards");
+const btn2=document.querySelector(".add-btn");
+const btn = document.getElementById("close");
+
+btn2.addEventListener("click",()=>{
+  card.style.display="block"
+})
+btn.addEventListener("click",()=>{
+    card.style.display = "none"
+})
 
 save.addEventListener("click", (e) => {
   if (input.value.trim() !== "" || date.value.trim() !== "") {
