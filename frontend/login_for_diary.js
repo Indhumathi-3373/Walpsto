@@ -3,8 +3,7 @@ const form =document.getElementById("formid")
 var passinp=document.getElementById("password")
 const errormsg=document.getElementById("error")
 const errormsg2=document.getElementById("error1")
-const forgot=document.getElementById("f_btn")
-const create=document.getElementsByClassName("c_btn")
+
 const emailRegex=/^[^\\s@]+@[^\\s@]+\\. [^\\s@]+$/;
 form.addEventListener("submit",async(e)=>{
     const email=emailinp.value.trim()
@@ -30,11 +29,11 @@ form.addEventListener("submit",async(e)=>{
     })
     const response=await res.json();
     if(response.message==="Login Successful"){
-    alert("Login successful")}
+    alert("Login successful",window.location.href="diary.html")}
     if(response.message==="Email not registered please create an account"){
         alert("Email not registered please create an account")
     }if(response.message==="Incorrect Password"){
-        alert("Incorrect Password",window.location.href="diary.html")
+        alert("Incorrect Password")
     }
 })
 emailinp.addEventListener("focus",(e)=>{
