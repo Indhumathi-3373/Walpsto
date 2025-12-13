@@ -1,12 +1,14 @@
 const express=require('express')
 const mongoose=require('mongoose')
-const web=express()
 const bodyparser=require('body-parser')
 const router=require('./routes')
+const logindiary=require('./loginroutes')
 
+const web=express()
 web.use(bodyparser.urlencoded({extended:true}))
 web.use(express.json())
 web.use(router)
+web.use(logindiary)
 mongoose.connect("mongodb://localhost:27017/create_account")
 .then(()=>{
     console.log("mongodb connected")
