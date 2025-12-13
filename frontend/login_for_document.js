@@ -3,14 +3,14 @@ const form = document.getElementById("formid")
 const passinp = document.getElementById("input1")
 const errormsg = document.getElementById("error")
 const errormsg2 = document.getElementById("error1")
-const emailRegex=/^[^\\s@]+@[^\\s@]+\\. [^\\s@]+$/;
+
 form.addEventListener("submit", async (e) => {
     e.preventDefault();
 
     const email = emailinp.value.trim()
     const pass_doc = passinp.value.trim()
 
-    if (emailinp.value === "" || emailRegex.test(email)) {
+    if (emailinp.value === "") {
         errormsg.style.display = "block"  
     } else {
         errormsg.style.display = "none"
@@ -29,8 +29,8 @@ form.addEventListener("submit", async (e) => {
         if (backend_res.message === "Login successful") {
             alert("Login successful")
             window.location.href = "documentation.html"
-        }
-        alert(backend_res.message)
+        }else{
+        alert(backend_res.message)}
 })
 
 emailinp.addEventListener("focus", () => {
