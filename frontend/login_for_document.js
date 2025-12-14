@@ -10,7 +10,7 @@ form.addEventListener("submit", async (e) => {
     const email = emailinp.value.trim()
     const pass_doc = passinp.value.trim()
 
-    if (emailinp.value === "") {
+    if (email.value === "") {
         errormsg.style.display = "block"  
     } else {
         errormsg.style.display = "none"
