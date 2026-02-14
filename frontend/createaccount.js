@@ -8,15 +8,18 @@ const pass_doc=document.getElementById('password_doc').value
 
 if(pass_diary.length <=6 ){
     alert("password must be more then 6 characters")
+    return
 }if(pass_doc.length <=6 ){
     alert("password must be more then 6 characters")
+    return
 }
 
-const res=await fetch("http://localhost:8000/frontend/create_account",{
-    method:"POST",
-    headers:{"content-type":"application/json"},
-    body:JSON.stringify({email,pass_diary,pass_doc})//converts js object into json string
+const res = await fetch("http://localhost:8000/frontend/create_account", {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify({ email, pass_diary, pass_doc })
 });
+
  const data=await res.json();
 
 //for alert
