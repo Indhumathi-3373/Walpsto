@@ -8,7 +8,7 @@ routediary.use(cors());
 routediary.use(express.json());
 
 routediary.post('/loginfordiary', async (req, res) => {
-    console.log('Request body:', req.body);
+    
     try {
         const { email, pass_diary } = req.body;
 
