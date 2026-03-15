@@ -1,209 +1,229 @@
-body {
-      margin: 0;
-      font-family: Arial, sans-serif;
-      background-color: #000;
-      color: #fff;
-      overflow-x:hidden ;
-    scrollbar-width: none;
-    }
-
-    /* Quote */
-    .quote {
-      position: relative;
-      display:flex;
-      top: 15px;
-      left: 4%;
-      font-size: 35px;
-      font-style: normal;
-      font-family: "Jim Nightshade", cursive;
-    word-spacing: 6px;
-    }
-    /* Dropdown */
-    .dropdown {
-      position: absolute;
-      top: 15px;
-      right: 30px;
-    }
-
-    .dropbtn {
-      background-color: #333;
-      color: white;
-      padding: 15px;
-      border: none;
-      border-radius: 5px;
-      cursor: pointer;
-    }
-
-    .dropdown-content {
-      display: none;
-      position: absolute;
-      right: 0;
-      background-color: #222;
-      min-width: 120px;
-      border-radius: 5px;
-      box-shadow: 0px 8px 16px rgba(0,0,0,0.4);
-    }
-
-    .dropdown-content a {
-      color: white;
-      padding: 10px;
-      text-decoration: none;
-      display: block;
-    }
-
-    .dropdown-content a:hover {
-      background-color: #444;
-    }
-
-    .dropdown:hover .dropdown-content {
-      display: block;
-    }
-
-    /* Floating Plus Button */
-    .add-btn {
-      position: fixed;
-      bottom: 20px;
-      right: 40px;
-      width: 55px;
-      height: 60px;
-      background-color: #17bfed;
-      color: white;
-      border-radius: 50%;
-      font-size: 32px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      cursor: pointer;
-      box-shadow: 0px 4px 8px rgba(0,0,0,0.6);
-    }.add-btn:hover{
-      box-shadow: 0px 0px 20px rgb(5, 176, 233);
-    }
-     #cards{
-      display:none; 
-      position:absolute;
-      background-color: #131111;
-      opacity:1;
-      width:100%;
-      height: 100%;
-      left:0%;
-      top:0%;
-      overflow-y:auto;
-    }#date{
-      position:absolute;
-      color:rgb(255, 255, 255);
-      left:2%;
-      justify-content: space-between;
-      gap:6px;
-    }#date input{
-      margin-top:20px;
-      padding:5px;
-      border-radius: 4px;
-      outline:none;
-    }#date label{
-      margin-top:25px;
-    } textarea{
-      position:absolute;
-      top:10%;
-      left:3%;
-    } textarea{
-      width:190vh;
-      height:76vh;
-      padding-left:15px;
-      padding-top:5px;
-      padding-right:15px;
-      padding-bottom:15px;
-       outline:none;
-       font-size:large;
-       overflow-y:scroll;
-       flex-wrap: wrap;
-       cursor: pointer;
-       resize:none;
-       z-index: 1;
-    }textarea:hover{
-      box-shadow: 0px 0px 10px white;
-      scroll-behavior: smooth;
-    }#save{
-      position:absolute;
-      bottom:2.5%;
-      left:55%;
-      background-color: rgb(3, 0, 190);
-      color:white;
-      padding:5px;
-      width:5%;
-      border-radius:7px;
-    }#save:hover{
-      background-color: rgb(35, 32, 219);
-      transform:scale(1.05);
-    }#close{
-      position:relative;
-      top:93.5%;
-      left:47%;
-      padding:5px;
-      width:5%;
-      border-radius: 5px;
-    }#close:hover{
-      transform: scale(1.05);
-      background-color: rgb(207, 199, 187);
-    }/* Container holding all cards */
-#subcard {
-    display: inline-flex;
-    flex-direction: row;
-    margin:1%;
-   column-gap: 50px;
+.diary-page {
+    overflow-x: hidden;
 }
 
-/* Each individual card */
-.wrapper {
-    background-color: #fff;
-    padding: 15px 20px;
+.diary-header {
+    padding: 24px 0 16px;
+}
+
+.header-grid {
+    display: grid;
+    grid-template-columns: 1fr auto auto;
+    align-items: center;
+    gap: 16px;
+}
+
+.brand {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    font-family: "Cinzel", serif;
+    font-weight: 700;
+    letter-spacing: 1px;
+}
+
+.brand-mark {
+    width: 36px;
+    height: 36px;
     border-radius: 10px;
-    box-shadow: 0px 3px 8px rgba(0,0,0,0.1);
+    background: linear-gradient(135deg, var(--accent), var(--accent-2));
+    display: grid;
+    place-items: center;
+    color: #1b1f24;
+    font-weight: 700;
+}
+
+.brand-name {
+    font-size: 18px;
+}
+
+.page-quote {
+    color: var(--muted);
+    font-size: 16px;
+}
+
+.menu {
     position: relative;
-    
 }
 
-/* Date display */
+.menu-btn {
+    width: 42px;
+    height: 42px;
+    border-radius: 12px;
+    border: 1px solid var(--border);
+    background: rgba(21, 26, 32, 0.8);
+    color: var(--text);
+    cursor: pointer;
+    font-size: 18px;
+}
+
+.menu-panel {
+    position: absolute;
+    right: 0;
+    margin-top: 10px;
+    background: var(--surface-strong);
+    border: 1px solid var(--border);
+    border-radius: 14px;
+    box-shadow: var(--shadow);
+    display: none;
+    min-width: 160px;
+    padding: 8px;
+    z-index: 10;
+}
+
+.menu-panel a {
+    display: block;
+    padding: 10px 12px;
+    border-radius: 10px;
+    color: var(--text);
+}
+
+.menu-panel a:hover {
+    background: rgba(255, 255, 255, 0.06);
+}
+
+.menu:hover .menu-panel {
+    display: block;
+}
+
+.diary-main {
+    padding: 24px 0 80px;
+}
+
+.entry-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 220px));
+    gap: 20px;
+    justify-content: start;
+}
+
+.add-btn {
+    position: fixed;
+    bottom: 24px;
+    right: 24px;
+    width: 56px;
+    height: 56px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, var(--accent-2), #86f1e4);
+    color: #10221f;
+    font-size: 28px;
+    border: none;
+    cursor: pointer;
+    box-shadow: 0 18px 35px rgba(0, 0, 0, 0.35);
+    transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.add-btn:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 22px 38px rgba(0, 0, 0, 0.45);
+}
+
+.editor-overlay {
+    display: none;
+    position: fixed;
+    inset: 0;
+    background: rgba(10, 12, 15, 0.72);
+    padding: 24px;
+    overflow-y: auto;
+    z-index: 20;
+}
+
+.editor {
+    width: min(900px, 96vw);
+    margin: 40px auto;
+    padding: 24px;
+    display: grid;
+    gap: 18px;
+}
+
+.editor-header {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 16px;
+}
+
+.field {
+    display: grid;
+    gap: 8px;
+    background: var(--surface-strong);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 16px;
+    padding: 14px;
+    box-shadow: var(--shadow);
+}
+
+.field .input,
+.field .select {
+    background: rgba(10, 12, 16, 0.7);
+}
+
+#content {
+    min-height: 320px;
+    resize: vertical;
+}
+
+.editor-actions {
+    display: flex;
+    justify-content: flex-end;
+    gap: 12px;
+}
+
+.wrapper {
+    width: 100%;
+    aspect-ratio: 1 / 1;
+    background: var(--surface-strong);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 18px;
+    padding: 16px;
+    display: grid;
+    gap: 10px;
+    align-content: start;
+    box-shadow: var(--shadow);
+    overflow: hidden;
+}
+
 .entry-date {
-    font-size: 17px;
-    color: #060606;
+    font-size: 13px;
+    color: var(--muted);
+    text-transform: uppercase;
+    letter-spacing: 1px;
 }
 
-/* User input content */
 .entry-content {
     font-size: 14px;
-    color: #232121;
+    color: var(--text);
+    line-height: 1.5;
+    overflow: hidden;
+    display: -webkit-box;
+    -webkit-line-clamp: 4;
+    -webkit-box-orient: vertical;
 }
 
-/* Buttons inside the card */
 .wrapper button {
     cursor: pointer;
     border: none;
-    padding: 5px 10px;
-    margin-top: 5px;
-    border-radius: 5px;
+    padding: 8px 12px;
+    border-radius: 10px;
     font-size: 12px;
-    width: fit-content;
 }
 
-/* Edit button styling */
 .wrapper .edit {
-    background-color:white;
-    border: none;
-    font-size: larger;
-    position:float;
+    background: rgba(255, 255, 255, 0.08);
+    color: var(--text);
 }
 
-.wrapper .edit:hover {
-   transform: scale(1.05);
-}
-
-/* Delete button styling */
 .wrapper .del {
-    background-color: #ff4d4d;
+    background: #ff4d4d;
     color: white;
-    margin-left:50px;
 }
 
-.wrapper .del:hover {
-    background-color: #e60000;
+@media (max-width: 800px) {
+    .header-grid {
+        grid-template-columns: 1fr;
+        justify-items: start;
+    }
+
+    .menu {
+        justify-self: flex-start;
+    }
 }

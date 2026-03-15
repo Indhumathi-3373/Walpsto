@@ -3,27 +3,31 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Login</title>
-    <link rel="stylesheet" href="./stylelogin1.css">
+    <title>Document Login</title>
+    <link rel="stylesheet" href="ui.css">
+    <link rel="stylesheet" href="stylelogin1.css">
 </head>
-
-<body>
-
-    <body id="body1">
-
-        <h1 class="h1 ">Preserve your legacy !!</h1><br>
-        <form id="formid">
-            <h2>Login Here</h2><br> <br>
-            <input id="email2" type="email" placeholder="enter your email id" name="Email :" value=""><br>
-            <div id="error">please enter valid email</div><br>
-            <input id="input1" type="password" placeholder="enter your password " name="password :" value=""><br>
-            <div id="error1">password must be atleast 6 characters</div><br>
-            <button id="f_btn" type="button">Forgot Password?</button>
-            <button id="l_sub" type="submit">Login</button><br><br>
-            <text style=>Don't have an account? <a href="create_account.html"class="c_btn" type="button">Create Account</button></text>
+<body class="auth-page">
+    <main class="auth-card surface">
+        <div class="auth-header">
+            <p class="label">Document Access</p>
+            <h1 class="auth-title">Preserve Your Legacy</h1>
+            <p class="subtitle">Log in to manage your documents.</p>
+        </div>
+        <form id="formid" class="auth-form">
+            <label class="label" for="email2">Email</label>
+            <input id="email2" type="email" class="input" placeholder="Enter your email" name="Email :" value="">
+            <div id="error">please enter valid email</div>
+            <label class="label" for="input1">Password</label>
+            <input id="input1" type="password" class="input" placeholder="Enter your password" name="password :" value="">
+            <div id="error1">password must be atleast 6 characters</div>
+            <div class="auth-actions">
+                <button id="f_btn" type="button" class="btn btn-ghost">Forgot Password?</button>
+                <button id="l_sub" type="submit" class="btn btn-primary">Login</button>
+            </div>
+            <p class="auth-footer">Don't have an account? <a href="create_account.html" class="c_btn">Create Account</a></p>
         </form>
         <script src="./login_for_document.js"></script>
-    </body>
+    </main>
 </body>
-
 </html>

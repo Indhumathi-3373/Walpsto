@@ -1,0 +1,168 @@
+.docs-page {
+    min-height: 100vh;
+}
+
+.docs-header {
+    padding: 24px 0 16px;
+}
+
+.docs-header .header-grid {
+    display: grid;
+    grid-template-columns: 1fr auto auto;
+    align-items: center;
+    gap: 16px;
+}
+
+.docs-header .brand {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    font-family: "Cinzel", serif;
+    font-weight: 700;
+}
+
+.docs-header .brand-mark {
+    width: 36px;
+    height: 36px;
+    border-radius: 10px;
+    background: linear-gradient(135deg, var(--accent), var(--accent-2));
+    display: grid;
+    place-items: center;
+    color: #1b1f24;
+}
+
+.docs-header .brand-name {
+    font-size: 18px;
+}
+
+.page-quote {
+    color: var(--muted);
+    font-size: 16px;
+}
+
+.menu {
+    position: relative;
+}
+
+.dropdown {
+    position: absolute;
+    right: 0;
+    margin-top: 10px;
+    background: var(--surface-strong);
+    border: 1px solid var(--border);
+    border-radius: 14px;
+    box-shadow: var(--shadow);
+    min-width: 160px;
+    padding: 8px;
+    z-index: 10;
+}
+
+.dropdown a {
+    display: block;
+    padding: 10px 12px;
+    border-radius: 10px;
+}
+
+.dropdown a:hover {
+    background: rgba(255, 255, 255, 0.06);
+}
+
+.docs-main {
+    padding: 24px 0 80px;
+    display: grid;
+    gap: 24px;
+}
+
+.docs-toolbar {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    gap: 16px;
+}
+
+.toolbar-title {
+    font-family: "Cinzel", serif;
+    font-size: 24px;
+}
+
+.file-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(180px, 200px));
+    gap: 18px;
+    justify-content: start;
+}
+
+.file-tile {
+    width: 100%;
+    aspect-ratio: 1 / 1;
+    background: linear-gradient(160deg, rgba(24, 30, 39, 0.96), rgba(16, 20, 28, 0.95));
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    border-radius: 18px;
+    padding: 16px;
+    display: grid;
+    place-items: center;
+    gap: 10px;
+    color: var(--text);
+    cursor: pointer;
+    transition: transform 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease;
+    position: relative;
+    box-shadow: var(--shadow);
+}
+
+.file-tile:hover {
+    transform: translateY(-3px);
+    border-color: var(--accent);
+    box-shadow: 0 16px 30px rgba(0, 0, 0, 0.35);
+}
+
+.file-icon {
+    width: 48px;
+    height: 48px;
+    border-radius: 12px;
+    display: grid;
+    place-items: center;
+    background: rgba(255, 255, 255, 0.06);
+    color: var(--accent);
+    font-size: 18px;
+}
+
+.file-label {
+    font-size: 13px;
+    color: var(--muted);
+    text-align: center;
+}
+
+.file-menu {
+    position: absolute;
+    top: 8px;
+    left: 8px;
+    background: #11161d;
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    border-radius: 10px;
+    box-shadow: var(--shadow);
+    overflow: hidden;
+    z-index: 10;
+}
+
+.file-menu-item {
+    padding: 8px 10px;
+    font-size: 12px;
+    cursor: pointer;
+    color: var(--text);
+}
+
+.file-menu-item:hover {
+    background: rgba(255, 255, 255, 0.06);
+}
+
+.file-input {
+    display: none;
+}
+
+@media (max-width: 800px) {
+    .docs-header .header-grid {
+        grid-template-columns: 1fr;
+        justify-items: start;
+    }
+}

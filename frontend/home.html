@@ -8,87 +8,109 @@
     <link rel="stylesheet" href="home.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Jim+Nightshade&family=Tangerine:wght@400;700&display=swap"
-        rel="stylesheet">   
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700&family=Manrope:wght@300;400;600;700&display=swap" rel="stylesheet">
 </head>
 
 <body>
-    
-    <div id="top">
-        <h2 id="h1">Write your Story...</h2>
-        <h2 id="h2">Store Your Legacy...</h2>
-        <h2 id="h22">Forever Now !</h2>
-        <a href="admin.html" id="admin">Admin</a>
-        <a id="acc" href="create_account.html">Create Account</a>
-        <a id="me" href="#section2">About Us</a>
-    </div>
-    <br><br>
-    <hr>
-    <h1 id="h11">Do you preserve document or express yourself ?</h1>
-    <section id="sec1">
-        <span id="card1">
-            <img id="img1" src="../images/pic1.avif">
-            <div>
-                <text id="text">Welcome to our document management system . To access your documents, please log in
-                    with your credentials . If
-                    you're a new user, please create an account . Our system ensures secure and efficient document
-                    management,
-                    allowing you to access your files anytime . Store Your Documents Here By log in .
-                </text>
-                <a id="a1" href="loginfordocument.html">Log in</a>
+    <header id="top" class="hero">
+        <nav class="top-nav">
+            <div class="brand">
+                <span class="brand-mark">W</span>
+                <span class="brand-name">Walpsto</span>
             </div>
-        </span>
-        <span id="card2">
-            <img id="img2" src="../images/pic22.jpg">
-            <div>
-                <text id="text">Welcome to our workspace management system . To access your page, please log in
-                    with your credentials . If
-                    you're a new user, please create an account . Our system ensures secure and efficient workspace
-                    management,
-                    allowing you to access your workspace anytime . Store Your Thoughts Here By log in .
-                </text>
-                <a id="a1" href="loginfordiary.html">Log in</a>
+            <div class="nav-links">
+                <a href="admin.html" id="admin">Admin</a>
+                <a id="acc" href="create_account.html">Create Account</a>
+                <a id="me" href="#section2">About Us</a>
             </div>
-        </span>
-    </section>
-    <div><text id="txt">“Both are different, but see the same purpose.”</text></div><br><br><br>
-    <div id="line">
-        <span>∞</span>
-    </div><br><br>
-    <h2 id="ah2">About Me</h2><br><br>
-    <h3>" Empowering a brighter future "</h3><br>
-    <section id="section2">
-        <div id="ab">
-            <img id="indhu" src="../images/ghibli.png" alt="img">
-            <div>
-                <ul>
-                    <text id="txt1">
-                        <li> Hello and welcome to my web application! I'm Indhumathi Chandrasekar, a student at Shree
-                            Venkateshwara
-                            Hi-Tech
-                            Engineering College .</li><br>
-                        <li style="text-decoration:underline;">Purpose of this application :</li><br>
-                        <li>This platform is designed to help you securely store your personal documents and private
-                            thoughts—all in
-                            one convenient place .</li><br>
-                        <li>Whether you're organizing important files or jotting down your reflections, this application
-                            is built
-                            with simplicity and privacy in mind .</li><br>
-                        <li>For individuals lacking private space to maintain a diary , this online platform offers a
-                            convenient and hassle-free alternative.</li>
-                    </text>
+        </nav>
+
+        <div class="hero-grid">
+            <div class="hero-content">
+                <p id="h1" class="hero-kicker">Write your story.</p>
+                <h1 id="h2" class="hero-title">Store your legacy.</h1>
+                <p id="h22" class="hero-subtitle">Safe, calm, and always within reach.</p>
+                <div class="hero-actions">
+                    <a class="primary" href="loginfordocument.html">Log in for Documents</a>
+                    <a class="ghost" href="loginfordiary.html">Log in for Diary</a>
+                </div>
+            </div>
+            <div class="hero-visual" aria-hidden="true">
+                <div class="visual-card">
+                    <p class="visual-label">Your vault</p>
+                    <h3>Moments, memories, meaning</h3>
+                    <div class="visual-tags">
+                        <span>Documents</span>
+                        <span>Diaries</span>
+                        <span>Privacy</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <section class="prompt">
+            <h2 id="h11">Do you preserve documents or express yourself?</h2>
+        </section>
+
+        <section id="sec1" class="cards">
+            <article id="card1" class="card">
+                <img id="img1" src="../images/pic1.avif" alt="Documents">
+                <div class="card-body">
+                    <p class="card-text">Welcome to our document management system. To access your documents, please log in with your credentials. If you are a new user, create an account. Our system ensures secure and efficient document management, allowing you to access your files anytime.</p>
+                    <a id="a1" class="card-cta" href="loginfordocument.html">Log in</a>
+                </div>
+            </article>
+
+            <article id="card2" class="card">
+                <img id="img2" src="../images/pic22.jpg" alt="Diary">
+                <div class="card-body">
+                    <p class="card-text">Welcome to our workspace management system. To access your page, please log in with your credentials. If you are a new user, create an account. Our system ensures secure and efficient workspace management, allowing you to access your workspace anytime.</p>
+                    <a id="a1" class="card-cta" href="loginfordiary.html">Log in</a>
+                </div>
+            </article>
+        </section>
+
+        <section class="quote">
+            <p id="txt">Both are different, but serve the same purpose.</p>
+            <div id="line" class="divider"><span>infinity</span></div>
+        </section>
+
+        <section id="section2" class="about">
+            <h2 id="ah2">About Me</h2>
+            <p class="about-tagline">Empowering a brighter future</p>
+            <div id="ab" class="about-grid">
+                <img id="indhu" src="../images/ghibli.png" alt="Profile">
+                <ul class="about-list">
+                    <li>Hello and welcome to my web application! I am Indhumathi Chandrasekar, a student at Shree Venkateshwara Hi-Tech Engineering College.</li>
+                    <li class="about-heading">Purpose of this application:</li>
+                    <li>This platform is designed to help you securely store your personal documents and private thoughts, all in one convenient place.</li>
+                    <li>Whether you are organizing important files or jotting down your reflections, this application is built with simplicity and privacy in mind.</li>
+                    <li>For individuals lacking private space to maintain a diary, this online platform offers a convenient and hassle-free alternative.</li>
                 </ul>
             </div>
-        </div><br>
-        <h2 id="h">Feedback </h2><br><br>
-        <div id="feed">
-            <input id="f_name" type="text" placeholder="Enter your Name" name="name :" value="" ><br><br>
-            <textarea id="f_feed" type="text" row="8" placeholder="Enter your feedback here" name="feedback:" value=""></textarea><br><br>
-            <button id="f_sub">Submit</button>
-        </div><br>
-            <a id="a" href="https://www.instagram.com/indhu_3373/">instagram </a>
-            <a id="a" href="https://www.linkedin.com/in/indhumathi-c-850092308/"> linkedin</a>
-            <a id="a" href="https://github.com/Indhumathi-3373/">github</a>
-    </section><script src="feedback.js"></script>
+
+            <div class="feedback">
+                <h3 id="h">Feedback</h3>
+                <div id="feed" class="feedback-card">
+                    <label class="sr-only" for="f_name">Name</label>
+                    <input id="f_name" type="text" placeholder="Enter your name" name="name">
+                    <label class="sr-only" for="f_feed">Feedback</label>
+                    <textarea id="f_feed" rows="6" placeholder="Enter your feedback here" name="feedback"></textarea>
+                    <button id="f_sub" type="button">Submit</button>
+                </div>
+            </div>
+
+            <div class="socials">
+                <a class="social-link" href="https://www.instagram.com/indhu_3373/">Instagram</a>
+                <a class="social-link" href="https://www.linkedin.com/in/indhumathi-c-850092308/">LinkedIn</a>
+                <a class="social-link" href="https://github.com/Indhumathi-3373/">GitHub</a>
+            </div>
+        </section>
+    </main>
+
+    <script src="feedback.js"></script>
 </body>
-</html><script src="feedback.js"></script>
+
+</html>

@@ -1,31 +1,23 @@
-*{
-    background-color: black;
-    padding: 0%;
-    margin: 0%;
-    text-align: center;
-    color:white;
-}input{
-    display: inline-block;
-    position: relative;
-    color: black;
-    background-color:white;
-    padding:5px;
-    width:75%;
-    border-radius: 5px;
-}input:focus{
-    outline:none;
-}button{
-    color: white;
-    background-color:  rgb(34, 130, 204);
-    border-radius: 5px;
-    padding:5px;
-}body{
-    border: 1px solid white;
-    border-radius: 8px;
-    margin-top: 15%;
-    margin-left: 36%;
-    margin-right: 36%;
-    padding:3%;
-}button:hover{
-    transform: scale(1.1);
+.auth-page {
+    min-height: 100vh;
+    display: grid;
+    place-items: center;
+    padding: 48px 0;
+}
+
+.auth-card {
+    width: min(420px, 92vw);
+    padding: 32px;
+    display: grid;
+    gap: 20px;
+}
+
+.auth-title {
+    font-family: "Cinzel", serif;
+    font-size: 28px;
+}
+
+.auth-form {
+    display: grid;
+    gap: 14px;
 }

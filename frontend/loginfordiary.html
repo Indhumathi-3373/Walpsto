@@ -3,21 +3,31 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Login</title>
-    <link rel="stylesheet" href="./login.css">
+    <title>Diary Login</title>
+    <link rel="stylesheet" href="ui.css">
+    <link rel="stylesheet" href="login.css">
 </head>
-<body>
-     <body id="body1">
-        <span>
-            <h1 class="h1 ">Journal Your Heart !!</h1><br>
-            <form id="formid" method="POST" action="./diary.html">
-                <h2>Login Here</h2><br> <br>
-                <input id="email" type="email" placeholder="enter your email id" name="Email :" value=""><br><div id="error">please enter valid email</div><br>
-                <input id="password" type="password" placeholder="enter your password " name="password :" value=""><br><div id="error1">password must have more than 6 characters</div><br>
-             <button id="f_btn" type="button">Forgot Password?</button>
-               <button id="l_sub" type="submit">Login</button> <br><br>
-                <text style=>Don't have an account? <a href="create_account.html"class="c_btn" type="button">Create Account</a></text></form>
-        </span>
-    </body><script src="./login_for_diary.js"></script>
-</body> 
+<body class="auth-page">
+    <main class="auth-card surface">
+        <div class="auth-header">
+            <p class="label">Diary Access</p>
+            <h1 class="auth-title">Journal Your Heart</h1>
+            <p class="subtitle">Log in to continue writing your story.</p>
+        </div>
+        <form id="formid" class="auth-form" method="POST" action="./diary.html">
+            <label class="label" for="email">Email</label>
+            <input id="email" type="email" class="input" placeholder="Enter your email" name="Email :" value="">
+            <div id="error">please enter valid email</div>
+            <label class="label" for="password">Password</label>
+            <input id="password" type="password" class="input" placeholder="Enter your password" name="password :" value="">
+            <div id="error1">password must have more than 6 characters</div>
+            <div class="auth-actions">
+                <button id="f_btn" type="button" class="btn btn-ghost">Forgot Password?</button>
+                <button id="l_sub" type="submit" class="btn btn-primary">Login</button>
+            </div>
+            <p class="auth-footer">Don't have an account? <a href="create_account.html" class="c_btn">Create Account</a></p>
+        </form>
+    </main>
+    <script src="./login_for_diary.js"></script>
+</body>
 </html>
