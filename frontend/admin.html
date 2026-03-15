@@ -7,20 +7,68 @@
     <link rel="stylesheet" href="ui.css">
     <link rel="stylesheet" href="Admin.css">
 </head>
-<body class="auth-page">
-    <main class="auth-card surface">
-        <div class="auth-header">
-            <p class="label">Secure Access</p>
-            <h1 class="auth-title">Admin Login</h1>
-            <p class="subtitle">Manage and review platform activity.</p>
-        </div>
-        <div class="auth-form">
-            <label class="label" for="email">Email</label>
-            <input type="email" id="email" class="input" placeholder="Enter email" name="Email :" value="">
-            <label class="label" for="password">Password</label>
-            <input type="password" id="password" class="input" placeholder="Enter password" name="password" value="">
-            <button type="button" id="submit" class="btn btn-primary">Submit</button>
-        </div>
+<body class="admin-page">
+    <main class="admin-shell">
+        <section id="admin-login" class="auth-card surface">
+            <div class="auth-header">
+                <p class="label">Secure Access</p>
+                <h1 class="auth-title">Admin Login</h1>
+                <p class="subtitle">Manage and review platform activity.</p>
+            </div>
+            <div class="auth-form">
+                <label class="label" for="email">Email</label>
+                <input type="email" id="email" class="input" placeholder="Enter email" name="Email" value="">
+                <label class="label" for="password">Password</label>
+                <input type="password" id="password" class="input" placeholder="Enter password" name="password" value="">
+                <button type="button" id="submit" class="btn btn-primary">Unlock Dashboard</button>
+                <p id="admin-hint" class="hint hidden">Incorrect credentials. Try again.</p>
+            </div>
+        </section>
+
+        <section id="admin-dashboard" class="dashboard surface hidden">
+            <header class="dashboard-header">
+                <div class="brand">
+                    <span class="brand-mark">W</span>
+                    <div>
+                        <p class="label">Control Center</p>
+                        <h1 class="dashboard-title">Walpsto Admin</h1>
+                    </div>
+                </div>
+                <div class="dashboard-actions">
+                    <button type="button" class="btn btn-ghost" id="refresh">Refresh View</button>
+                    <button type="button" class="btn btn-outline" id="admin-logout">Log out</button>
+                </div>
+            </header>
+
+            <section class="stats-grid">
+                <article class="stat-card">
+                    <p class="label">Total Users</p>
+                    <h2 id="stat-users">0</h2>
+                </article>
+                <article class="stat-card">
+                    <p class="label">Diary Entries</p>
+                    <h2 id="stat-diaries">0</h2>
+                </article>
+                <article class="stat-card">
+                    <p class="label">Documents Stored</p>
+                    <h2 id="stat-docs">0</h2>
+                </article>
+                <article class="stat-card">
+                    <p class="label">Active Sessions</p>
+                    <h2 id="stat-active">0</h2>
+                </article>
+            </section>
+
+            <section class="dashboard-grid">
+                <article class="panel">
+                    <div class="panel-head">
+                        <h3>User Feedback</h3>
+                        <span class="pill muted" id="feedback-count">0 items</span>
+                    </div>
+                    <ul class="feedback-list" id="admin-feedback"></ul>
+                </article>
+            </section>
+        </section>
     </main>
     <script src="admin.js"></script>
 </body>
