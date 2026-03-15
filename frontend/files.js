@@ -1,87 +1,112 @@
-const button = document.getElementById('menu-button');
-const dropdown = document.getElementById('dropdown');
 const plus = document.getElementById('plus');
 const files = document.getElementById('files');
+const dropdown = document.getElementById('dropdown');
+const menuButton = document.getElementById('menu-button');
 
-button.addEventListener('click', () => {
-  dropdown.classList.toggle('hidden');
+const apiBase = `${location.protocol}//${location.hostname}:8000`;
+
+if (menuButton && dropdown) {
+  menuButton.addEventListener('click', () => {
+    dropdown.classList.toggle('hidden');
+  });
+
+  window.addEventListener('click', (e) => {
+    if (!menuButton.contains(e.target) && !dropdown.contains(e.target)) {
+      dropdown.classList.add('hidden');
+    }
+  });
+}
+
+const fileInput = document.createElement('input');
+fileInput.type = 'file';
+fileInput.className = 'file-input';
+document.body.appendChild(fileInput);
+
+function renderDoc(doc) {
+  const tile = document.createElement('div');
+  tile.className = 'file-tile';
+  tile.dataset.id = doc._id;
+
+  const icon = document.createElement('div');
+  icon.className = 'file-icon';
+  icon.textContent = 'DOC';
+
+  const label = document.createElement('div');
+  label.className = 'file-label';
+  label.textContent = doc.originalName;
+
+  const actions = document.createElement('div');
+  actions.className = 'file-actions';
+
+  const openBtn = document.createElement('button');
+  openBtn.className = 'file-action';
+  openBtn.textContent = 'Open';
+
+  const delBtn = document.createElement('button');
+  delBtn.className = 'file-action danger';
+  delBtn.textContent = 'Delete';
+
+  actions.appendChild(openBtn);
+  actions.appendChild(delBtn);
+
+  tile.appendChild(icon);
+  tile.appendChild(label);
+  tile.appendChild(actions);
+  files.appendChild(tile);
+
+  openBtn.addEventListener('click', (e) => {
+    e.stopPropagation();
+    window.open(`${apiBase}${doc.fileUrl}`, '_blank');
+  });
+
+  delBtn.addEventListener('click', async (e) => {
+    e.stopPropagation();
+    await fetch(`${apiBase}/frontend/documents/${doc._id}`, {
+      method: 'DELETE',
+      credentials: 'include'
+    });
+    await loadDocs();
+  });
+}
+
+async function loadDocs() {
+  files.innerHTML = '';
+  try {
+    const res = await fetch(`${apiBase}/frontend/documents`, { credentials: 'include' });
+    const data = await res.json();
+    if (data && Array.isArray(data.documents)) {
+      data.documents.forEach(renderDoc);
+    }
+  } catch (err) {
+    console.error(err);
+  }
+}
+
+plus.addEventListener('click', () => {
+  fileInput.value = '';
+  fileInput.click();
 });
 
-// Close dropdown when clicked outside
-window.addEventListener('click', (e) => {
-  if (!button.contains(e.target) && !dropdown.contains(e.target)) {
-    dropdown.classList.add('hidden');
+fileInput.addEventListener('change', async () => {
+  if (!fileInput.files.length) return;
+  const formData = new FormData();
+  formData.append('file', fileInput.files[0]);
+
+  try {
+    const res = await fetch(`${apiBase}/frontend/documents`, {
+      method: 'POST',
+      body: formData,
+      credentials: 'include'
+    });
+    if (!res.ok) {
+      const err = await res.json();
+      alert(err.message || 'Upload failed');
+      return;
+    }
+    await loadDocs();
+  } catch (err) {
+    alert('Upload failed');
   }
 });
 
-// Add new file input on + click
-plus.addEventListener('click', () => {
-  const wrapper = document.createElement("div");
-  wrapper.className = "file-tile";
-
-  const input = document.createElement("input");
-  input.type = "file";
-  input.className = "file-input";
-
-  const icon = document.createElement("div");
-  icon.className = "file-icon";
-  icon.textContent = "FILE";
-
-  const labelText = document.createElement("span");
-  labelText.className = "file-label";
-  labelText.textContent = "Upload";
-
-  wrapper.appendChild(input);
-  wrapper.appendChild(icon);
-  wrapper.appendChild(labelText);
-  files.appendChild(wrapper);
-
-  wrapper.addEventListener("click", (e) => {
-    e.stopPropagation();
-
-    const existingMenu = wrapper.querySelector(".file-menu");
-    if (existingMenu) {
-      existingMenu.remove();
-      return;
-    }
-
-    const menu = document.createElement("div");
-    menu.className = "file-menu";
-
-    const selectOption = document.createElement("div");
-    selectOption.textContent = "Select File";
-    selectOption.className = "file-menu-item";
-    selectOption.addEventListener("click", (ev) => {
-      ev.stopPropagation();
-      input.click();
-    });
-
-    const deleteOption = document.createElement("div");
-    deleteOption.textContent = "Delete";
-    deleteOption.className = "file-menu-item";
-    deleteOption.addEventListener("click", (ev) => {
-      ev.stopPropagation();
-      wrapper.remove();
-    });
-
-    menu.appendChild(selectOption);
-    menu.appendChild(deleteOption);
-    wrapper.appendChild(menu);
-
-    document.addEventListener("click", function handler(event) {
-      if (!wrapper.contains(event.target)) {
-        menu.remove();
-        document.removeEventListener("click", handler);
-      }
-    });
-  });
-
-  input.addEventListener("change", () => {
-    if (input.files.length > 0) {
-      icon.textContent = "DOC";
-      labelText.textContent = input.files[0].name.length > 15
-        ? input.files[0].name.slice(0, 12) + "..."
-        : input.files[0].name;
-    }
-  });
-});
+loadDocs();

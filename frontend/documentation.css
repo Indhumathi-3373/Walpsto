@@ -131,6 +131,28 @@
     font-size: 13px;
     color: var(--muted);
     text-align: center;
+    word-break: break-word;
+}
+
+.file-actions {
+    display: flex;
+    gap: 8px;
+}
+
+.file-action {
+    border: none;
+    border-radius: 999px;
+    padding: 6px 10px;
+    font-size: 12px;
+    cursor: pointer;
+    background: rgba(255, 255, 255, 0.08);
+    color: var(--text);
+}
+
+.file-action.danger {
+    background: rgba(255, 77, 77, 0.15);
+    color: #ff8a8a;
+    border: 1px solid rgba(255, 77, 77, 0.4);
 }
 
 .file-menu {

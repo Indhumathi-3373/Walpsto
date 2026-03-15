@@ -137,6 +137,8 @@
                 if (!data || !data.authenticated) return;
                 const diaryCta = document.getElementById("diary-cta");
                 const diaryCardCta = document.getElementById("diary-card-cta");
+                const docCta = document.getElementById("doc-cta");
+                const docCardCta = document.getElementById("doc-card-cta");
                 if (diaryCta) {
                     diaryCta.textContent = "Explore Now";
                     diaryCta.href = "diary.html";
@@ -144,6 +146,14 @@
                 if (diaryCardCta) {
                     diaryCardCta.textContent = "Explore Now";
                     diaryCardCta.href = "diary.html";
+                }
+                if (docCta) {
+                    docCta.textContent = "Explore Now";
+                    docCta.href = "documentation.html";
+                }
+                if (docCardCta) {
+                    docCardCta.textContent = "Explore Now";
+                    docCardCta.href = "documentation.html";
                 }
             })
             .catch(() => {});
