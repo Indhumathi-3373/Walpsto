@@ -16,13 +16,15 @@ if (submit) {
                 body: JSON.stringify({ name: fName.value, message: feedback.value })
             });
             if (!res.ok) {
-                throw new Error("Request failed");
+                const data = await res.json().catch(() => ({}));
+                const message = data.message || "Unable to send feedback right now.";
+                throw new Error(message);
             }
             alert("Thanks for your feedback!");
             fName.value = "";
             feedback.value = "";
         } catch (err) {
-            alert("Unable to send feedback right now.");
+            alert(err.message || "Unable to send feedback right now.");
         }
     });
 }
