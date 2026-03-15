@@ -29,11 +29,20 @@ form.addEventListener("submit",async(e)=>{
     })
     const response=await res.json();
     if(response.message==="Login Successful"){
-    alert("Login successful",window.location.href="diary.html")}
+        
+    alert("Login successful",window.location.href="diary.html");
+    emailinp.value="";
+        passinp.value="";
+}
+
     if(response.message==="Email not registered please create an account"){
         alert("Email not registered please create an account")
+        emailinp.value=""
+        passinp.value=""
     }if(response.message==="Incorrect Password"){
         alert("Incorrect Password")
+        emailinp.value=""
+        passinp.value=""
     }
 })
 emailinp.addEventListener("focus",(e)=>{

@@ -81,7 +81,8 @@ a {
 
 #admin,
 #acc,
-#me {
+#me,
+#contact-link {
     padding: 10px 18px;
     border-radius: 999px;
     border: 1px solid rgba(255, 255, 255, 0.2);
@@ -91,10 +92,15 @@ a {
 
 #admin:hover,
 #acc:hover,
-#me:hover {
+#me:hover,
+#contact-link:hover {
     transform: translateY(-2px);
     border-color: var(--accent);
     box-shadow: 0 10px 25px rgba(255, 179, 71, 0.25);
+}
+
+#contact {
+    scroll-margin-top: 80px;
 }
 
 .hero-content {
@@ -428,6 +434,72 @@ main {
     color: var(--text);
     border-color: var(--accent-2);
     box-shadow: 0 10px 25px rgba(78, 214, 197, 0.2);
+}
+
+.contact {
+    padding: 0 8vw 80px;
+    position: relative;
+}
+
+.contact::before {
+    content: none;
+}
+
+.contact-card {
+    background: linear-gradient(150deg, rgba(23, 28, 34, 0.95), rgba(20, 26, 33, 0.85));
+    border: 1px solid rgba(255, 179, 71, 0.4);
+    border-radius: 24px;
+    padding: 32px;
+    display: grid;
+    gap: 16px;
+    box-shadow: var(--shadow);
+    text-align: center;
+    position: relative;
+    z-index: 1;
+}
+
+.contact-title {
+    font-family: "Cinzel", serif;
+    font-size: clamp(24px, 4vw, 36px);
+}
+
+.contact-subtitle {
+    color: var(--muted);
+}
+
+.contact-extra {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 12px;
+    margin-top: 8px;
+}
+
+.contact-badge {
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 16px;
+    padding: 14px;
+    text-align: left;
+}
+
+.contact-badge span {
+    display: block;
+    font-size: 12px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin-bottom: 4px;
+}
+
+.contact-badge p {
+    color: var(--muted);
+    font-size: 14px;
+}
+
+@media (max-width: 900px) {
+    .contact {
+        padding: 0 6vw 64px;
+    }
 }
 
 .sr-only {
