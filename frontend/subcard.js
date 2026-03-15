@@ -4,73 +4,129 @@ const day = document.getElementById("day");
 const save = document.getElementById("save");
 const subcard = document.getElementById("subcard");
 const card = document.getElementById("cards");
-const btn2=document.querySelector(".add-btn");
+const btn2 = document.querySelector(".add-btn");
 const btn = document.getElementById("close");
 
-btn2.addEventListener("click",()=>{
-  card.style.display="block"
-})
-btn.addEventListener("click",()=>{
-    card.style.display = "none"
-})
+const apiBase = `${location.protocol}//${location.hostname}:8000`;
+let editingId = null;
 
-save.addEventListener("click", (e) => {
-  if (input.value.trim() !== "" || date.value.trim() !== "") {
-    
-    // Creating wrapper div
-    const wrapper = document.createElement("div");
-    wrapper.classList.add("wrapper"); 
+function renderEntry(entry) {
+  const wrapper = document.createElement("div");
+  wrapper.classList.add("wrapper");
+  wrapper.dataset.id = entry._id;
 
-    // Edit button
-    const edit = document.createElement("button");
-    edit.classList.add("edit");
-    edit.textContent = "📝";
+  const edit = document.createElement("button");
+  edit.classList.add("edit");
+  edit.textContent = "Edit";
 
-    // Date
-    const dat = document.createElement("span");
-    dat.classList.add("entry-date");
-    dat.innerHTML = `📅 : ${date.value} &nbsp;`;
+  const dat = document.createElement("span");
+  dat.classList.add("entry-date");
+  dat.textContent = `Date: ${entry.date} | Day: ${entry.day}`;
 
-    // Input content
-    const inp = document.createElement("p");
-    inp.classList.add("entry-content");
-    inp.innerHTML = `${input.value} <br>`;
+  const inp = document.createElement("p");
+  inp.classList.add("entry-content");
+  inp.textContent = entry.content;
 
-    // Delete button
-    const del = document.createElement("button");
-    del.classList.add("del");
-    del.textContent = "Delete";
-    
-    
-    // Append elements
-    wrapper.appendChild(dat);
-    wrapper.appendChild(edit);
-    wrapper.appendChild(inp);
-    wrapper.appendChild(del);
-    subcard.appendChild(wrapper);
+  const del = document.createElement("button");
+  del.classList.add("del");
+  del.textContent = "Delete";
 
-    // Clear input fields
-    date.value = "";
-    input.value = "";
-    day.value = "";
+  const actions = document.createElement("div");
+  actions.classList.add("entry-actions");
+  actions.appendChild(edit);
+  actions.appendChild(del);
 
-    // Delete functionality
-    del.addEventListener("click", () => {
-      subcard.removeChild(wrapper);
-      
-    });
+  wrapper.appendChild(dat);
+  wrapper.appendChild(inp);
+  wrapper.appendChild(actions);
+  subcard.appendChild(wrapper);
 
-    // Edit functionality
-    edit.addEventListener("click", () => {
-      input.value = inp.textContent; // load current content
-      date.value = date.value; // you can add day if needed
-      subcard.removeChild(wrapper); // remove current entry to edit
-      card.style.display = "block";
-    });
+  del.addEventListener("click", async () => {
+    try {
+      await fetch(`${apiBase}/frontend/diary/${entry._id}`, {
+        method: "DELETE",
+        credentials: "include"
+      });
+      await loadEntries();
+    } catch (err) {
+      alert("Failed to delete entry");
+    }
+  });
 
-    // hide form after saving
-    card.style.display = "none";
-  } else {
+  edit.addEventListener("click", () => {
+    editingId = entry._id;
+    date.value = entry.date;
+    day.value = entry.day;
+    input.value = entry.content;
+    card.style.display = "block";
+  });
+}
+
+async function loadEntries() {
+  subcard.innerHTML = "";
+  try {
+    const res = await fetch(`${apiBase}/frontend/diary`, { credentials: "include" });
+    const data = await res.json();
+    if (data && Array.isArray(data.entries)) {
+      data.entries.forEach(renderEntry);
+    }
+  } catch (err) {
+    console.error(err);
+  }
+}
+
+btn2.addEventListener("click", () => {
+  editingId = null;
+  date.value = "";
+  day.value = "";
+  input.value = "";
+  card.style.display = "block";
+});
+
+btn.addEventListener("click", () => {
+  card.style.display = "none";
+});
+
+save.addEventListener("click", async () => {
+  if (input.value.trim() === "" || date.value.trim() === "" || day.value.trim() === "") {
     alert("Please fill all the fields");
+    return;
+  }
+
+  const payload = {
+    date: date.value.trim(),
+    day: day.value.trim(),
+    content: input.value.trim()
+  };
+
+  try {
+    const url = editingId
+      ? `${apiBase}/frontend/diary/${editingId}`
+      : `${apiBase}/frontend/diary`;
+    const method = editingId ? "PUT" : "POST";
+
+    const res = await fetch(url, {
+      method,
+      headers: { "Content-Type": "application/json" },
+      credentials: "include",
+      body: JSON.stringify(payload)
+    });
+
+    if (!res.ok) {
+      const err = await res.json();
+      alert(err.message || "Failed to save entry");
+      return;
+    }
+
+    editingId = null;
+    card.style.display = "none";
+    date.value = "";
+    day.value = "";
+    input.value = "";
+    await loadEntries();
+  } catch (err) {
+    alert("Failed to save entry");
   }
 });
+
+loadEntries();

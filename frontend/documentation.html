@@ -20,7 +20,7 @@
         <div id="dropdown" class="dropdown hidden">
           <a href="home.html">Home</a>
           <a href="#section2">About us</a>
-          <a href="#">Logout</a>
+          <a id="logout-link" href="#">Logout</a>
         </div>
       </div>
     </div>
@@ -36,5 +36,18 @@
   </main>
 
   <script src="files.js"></script>
+  <script>
+    const logoutLink = document.getElementById("logout-link");
+    if (logoutLink) {
+      logoutLink.addEventListener("click", (e) => {
+        e.preventDefault();
+        const apiBase = `${location.protocol}//${location.hostname}:8000`;
+        fetch(`${apiBase}/frontend/logout`, { method: "POST", credentials: "include" })
+          .finally(() => {
+            window.location.href = "home.html";
+          });
+      });
+    }
+  </script>
 </body>
 </html>

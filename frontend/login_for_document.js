@@ -20,9 +20,11 @@ form.addEventListener("submit", async (e) => {
     } else {
         errormsg2.style.display = "none"
     }
-        const res = await fetch("http://localhost:8000/frontend/loginfordocument",{
+        const apiBase = `${location.protocol}//${location.hostname}:8000`;
+        const res = await fetch(`${apiBase}/frontend/loginfordocument`,{
             method: "POST",
             headers: { "Content-Type": "application/json" },
+            credentials: "include",
             body: JSON.stringify({ email, pass_doc })
         })
         const backend_res = await res.json()

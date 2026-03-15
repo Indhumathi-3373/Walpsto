@@ -82,7 +82,7 @@
     background: rgba(255, 255, 255, 0.06);
 }
 
-.menu:hover .menu-panel {
+.menu.open .menu-panel {
     display: block;
 }
 
@@ -197,6 +197,12 @@
     display: -webkit-box;
     -webkit-line-clamp: 4;
     -webkit-box-orient: vertical;
+}
+
+.entry-actions {
+    display: flex;
+    gap: 8px;
+    margin-top: auto;
 }
 
 .wrapper button {

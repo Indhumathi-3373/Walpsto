@@ -21,7 +21,7 @@
         <div class="menu-panel">
           <a href="home.html">Home</a>
           <a href="#section2">About Us</a>
-          <a href="home.html">Logout</a>
+          <a id="logout-link" href="#">Logout</a>
         </div>
       </div>
     </div>
@@ -63,6 +63,36 @@
 
   <button class="add-btn" type="button">+</button>
   <script src="./subcard.js"></script>
+  <script>
+    const menu = document.querySelector(".menu");
+    const menuBtn = document.querySelector(".menu-btn");
+    const menuPanel = document.querySelector(".menu-panel");
+
+    if (menuBtn && menuPanel) {
+      menuBtn.addEventListener("click", (e) => {
+        e.stopPropagation();
+        menu.classList.toggle("open");
+      });
+
+      document.addEventListener("click", (e) => {
+        if (!menu.contains(e.target)) {
+          menu.classList.remove("open");
+        }
+      });
+    }
+
+    const logoutLink = document.getElementById("logout-link");
+    if (logoutLink) {
+      logoutLink.addEventListener("click", (e) => {
+        e.preventDefault();
+        const apiBase = `${location.protocol}//${location.hostname}:8000`;
+        fetch(`${apiBase}/frontend/logout`, { method: "POST", credentials: "include" })
+          .finally(() => {
+            window.location.href = "home.html";
+          });
+      });
+    }
+  </script>
 </body>
 
 </html>

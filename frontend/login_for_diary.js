@@ -22,9 +22,11 @@ form.addEventListener("submit",async(e)=>{
 
     //sending details to backend
 
-    const res=await fetch("http://localhost:8000/frontend/loginfordiary",{
+    const apiBase = `${location.protocol}//${location.hostname}:8000`;
+    const res=await fetch(`${apiBase}/frontend/loginfordiary`,{
         method:"POST",
         headers:{"content-type":"application/json"},
+        credentials: "include",
         body:JSON.stringify({email,pass_diary})
     })
     const response=await res.json();

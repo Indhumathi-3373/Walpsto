@@ -31,11 +31,11 @@
                 <p id="h1" class="hero-kicker">Write your story.</p>
                 <h1 id="h2" class="hero-title">Store your legacy.</h1>
                 <p id="h22" class="hero-subtitle">Safe, calm, and always within reach.</p>
-                <div class="hero-actions">
-                    <a class="primary" href="loginfordocument.html">Log in for Documents</a>
-                    <a class="ghost" href="loginfordiary.html">Log in for Diary</a>
-                </div>
+            <div class="hero-actions">
+                <a class="primary" id="doc-cta" href="loginfordocument.html">Log in for Documents</a>
+                <a class="ghost" id="diary-cta" href="loginfordiary.html">Log in for Diary</a>
             </div>
+        </div>
             <div class="hero-visual" aria-hidden="true">
                 <div class="visual-card">
                     <p class="visual-label">Your vault</p>
@@ -60,7 +60,7 @@
                 <img id="img1" src="../images/pic1.avif" alt="Documents">
                 <div class="card-body">
                     <p class="card-text">Welcome to our document management system. To access your documents, please log in with your credentials. If you are a new user, create an account. Our system ensures secure and efficient document management, allowing you to access your files anytime.</p>
-                    <a id="a1" class="card-cta" href="loginfordocument.html">Log in</a>
+                    <a id="doc-card-cta" class="card-cta" href="loginfordocument.html">Log in</a>
                 </div>
             </article>
 
@@ -68,7 +68,7 @@
                 <img id="img2" src="../images/pic22.jpg" alt="Diary">
                 <div class="card-body">
                     <p class="card-text">Welcome to our workspace management system. To access your page, please log in with your credentials. If you are a new user, create an account. Our system ensures secure and efficient workspace management, allowing you to access your workspace anytime.</p>
-                    <a id="a1" class="card-cta" href="loginfordiary.html">Log in</a>
+                    <a id="diary-card-cta" class="card-cta" href="loginfordiary.html">Log in</a>
                 </div>
             </article>
         </section>
@@ -129,6 +129,25 @@
     </main>
 
     <script src="feedback.js"></script>
+    <script>
+        const apiBase = `${location.protocol}//${location.hostname}:8000`;
+        fetch(`${apiBase}/frontend/session`, { credentials: "include" })
+            .then((res) => res.json())
+            .then((data) => {
+                if (!data || !data.authenticated) return;
+                const diaryCta = document.getElementById("diary-cta");
+                const diaryCardCta = document.getElementById("diary-card-cta");
+                if (diaryCta) {
+                    diaryCta.textContent = "Explore Now";
+                    diaryCta.href = "diary.html";
+                }
+                if (diaryCardCta) {
+                    diaryCardCta.textContent = "Explore Now";
+                    diaryCardCta.href = "diary.html";
+                }
+            })
+            .catch(() => {});
+    </script>
 </body>
 
 </html>
