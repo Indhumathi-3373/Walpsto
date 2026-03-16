@@ -36,7 +36,7 @@ if (sessionStorage.getItem(SESSION_KEY) === "true") {
 
 async function loadAdminData() {
     try {
-        const apiBase = `${location.protocol}//${location.hostname}:8000`;
+        const apiBase = window.location.origin;
         const [statsRes, feedbackRes] = await Promise.all([
             fetch(`${apiBase}/frontend/admin/stats`),
             fetch(`${apiBase}/frontend/admin/feedback`)
@@ -115,3 +115,5 @@ if (refresh) {
         });
     });
 }
+
+

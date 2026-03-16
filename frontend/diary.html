@@ -19,7 +19,7 @@
       <div class="menu">
         <button class="menu-btn" type="button">&#9776;</button>
         <div class="menu-panel">
-          <a href="home.html">Home</a>
+          <a href="index.html">Home</a>
           <a href="#section2">About Us</a>
           <a id="logout-link" href="#">Logout</a>
         </div>
@@ -85,10 +85,10 @@
     if (logoutLink) {
       logoutLink.addEventListener("click", (e) => {
         e.preventDefault();
-        const apiBase = `${location.protocol}//${location.hostname}:8000`;
-        fetch(`${apiBase}/frontend/logout`, { method: "POST", credentials: "include" })
+        const apiBase = window.location.origin;
+        fetch(`${apiBase}/frontend/logout?scope=diary`, { method: "POST", credentials: "include" })
           .finally(() => {
-            window.location.href = "home.html";
+            window.location.href = "index.html";
           });
       });
     }
@@ -96,3 +96,6 @@
 </body>
 
 </html>
+
+
+

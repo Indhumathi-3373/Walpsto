@@ -9,7 +9,7 @@ if (submit) {
             return;
         }
         try {
-            const apiBase = `${location.protocol}//${location.hostname}:8000`;
+            const apiBase = window.location.origin;
             const res = await fetch(`${apiBase}/frontend/feedback`, {
                 method: "POST",
                 headers: { "Content-Type": "application/json" },
@@ -28,3 +28,5 @@ if (submit) {
         }
     });
 }
+
+

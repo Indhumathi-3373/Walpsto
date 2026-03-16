@@ -22,14 +22,21 @@ form.addEventListener("submit",async(e)=>{
 
     //sending details to backend
 
-    const apiBase = `${location.protocol}//${location.hostname}:8000`;
+    const apiBase = window.location.origin;
     const res=await fetch(`${apiBase}/frontend/loginfordiary`,{
         method:"POST",
         headers:{"content-type":"application/json"},
         credentials: "include",
         body:JSON.stringify({email,pass_diary})
     })
-    const response=await res.json();
+    let response = {};
+    const contentType = res.headers.get("content-type") || "";
+    if (contentType.includes("application/json")) {
+        response = await res.json();
+    } else {
+        alert("Login failed. Please try again.");
+        return;
+    }
     if(response.message==="Login Successful"){
         
     alert("Login successful",window.location.href="diary.html");
@@ -53,3 +60,5 @@ emailinp.addEventListener("focus",(e)=>{
 passinp.addEventListener("focus",(e)=>{
     errormsg2.style.display="none"
 });
+
+

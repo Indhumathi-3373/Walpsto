@@ -14,7 +14,8 @@ if(pass_diary.length <=6 ){
     return
 }
 
-const res = await fetch("http://localhost:8000/frontend/create_account", {
+const apiBase = window.location.origin;
+const res = await fetch(`${apiBase}/frontend/create_account`, {
     method: "POST",
     headers: { "Content-Type": "application/json" },
     body: JSON.stringify({ email, pass_diary, pass_doc })
@@ -31,6 +32,7 @@ const res = await fetch("http://localhost:8000/frontend/create_account", {
  }
  if(data.message==="account created successfully"){
     alert("account created successfully")
-     window.location.href="home.html";
+     window.location.href="index.html";
 }
 });
+

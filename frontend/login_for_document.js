@@ -20,7 +20,7 @@ form.addEventListener("submit", async (e) => {
     } else {
         errormsg2.style.display = "none"
     }
-        const apiBase = `${location.protocol}//${location.hostname}:8000`;
+        const apiBase = window.location.origin;
         const res = await fetch(`${apiBase}/frontend/loginfordocument`,{
             method: "POST",
             headers: { "Content-Type": "application/json" },
@@ -42,5 +42,7 @@ emailinp.addEventListener("focus", () => {
 passinp.addEventListener("focus", () => {
     errormsg2.style.display = "none"
 })
+
+
 
 

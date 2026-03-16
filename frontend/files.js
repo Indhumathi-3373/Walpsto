@@ -3,7 +3,7 @@ const files = document.getElementById('files');
 const dropdown = document.getElementById('dropdown');
 const menuButton = document.getElementById('menu-button');
 
-const apiBase = `${location.protocol}//${location.hostname}:8000`;
+const apiBase = window.location.origin;
 
 if (menuButton && dropdown) {
   menuButton.addEventListener('click', () => {
@@ -110,3 +110,5 @@ fileInput.addEventListener('change', async () => {
 });
 
 loadDocs();
+
+

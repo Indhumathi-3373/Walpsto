@@ -7,7 +7,7 @@ const card = document.getElementById("cards");
 const btn2 = document.querySelector(".add-btn");
 const btn = document.getElementById("close");
 
-const apiBase = `${location.protocol}//${location.hostname}:8000`;
+const apiBase = window.location.origin;
 let editingId = null;
 
 function renderEntry(entry) {
@@ -130,3 +130,5 @@ save.addEventListener("click", async () => {
 });
 
 loadEntries();
+
+

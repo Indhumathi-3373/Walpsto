@@ -15,7 +15,7 @@ Walpsto is a personal wallet web application for securely storing documents and 
 - Database: MongoDB
 
 ## Project Structure
-- `frontend/` Static pages and scripts
+- `frontend/` Static pages and scripts (served by the backend in production)
 - `backend/` Express server, routes, and MongoDB models
 - `images/` UI assets
 
@@ -26,13 +26,15 @@ Walpsto is a personal wallet web application for securely storing documents and 
    - `npm install`
 3. Start the backend server:
    - `npm start`
-4. Serve the frontend (for example with VS Code Live Server) and open:
-   - `frontend/home.html`
-
-The backend expects the frontend to be served from `http://127.0.0.1:5500` or `http://localhost:5500`.
+4. Open the app:
+   - `http://localhost:8000` (served from `frontend/index.html`)
 
 ## Environment
-You can optionally set `SESSION_SECRET` to override the default development secret.
+You can optionally set:
+- `SESSION_SECRET` to override the default development secret.
+- `MONGODB_URI` to point at a production Mongo instance.
+- `PORT` to change the server port (default `8000`).
+- `CLIENT_ORIGIN` (comma-separated) if you serve the frontend separately and need CORS.
 
 ## API Overview
 All routes are mounted under `/frontend` in the server.
