@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Home</title>
     <link rel="stylesheet" href="home.css">
+    <meta name="api-base" content="">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700&family=Manrope:wght@300;400;600;700&display=swap" rel="stylesheet">
@@ -130,7 +131,12 @@
 
     <script src="feedback.js"></script>
     <script>
-        const apiBase = window.location.origin;
+        const apiMeta = document.querySelector('meta[name="api-base"]');
+        const apiBase = apiMeta && apiMeta.content ? apiMeta.content.replace(/\/$/, "") : "";
+        if (!apiBase) {
+            // No backend configured for this static deploy.
+            return;
+        }
         fetch(`${apiBase}/frontend/session`, { credentials: "include" })
             .then((res) => res.json())
             .then((data) => {
