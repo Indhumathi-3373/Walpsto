@@ -1,5 +1,10 @@
 const form=document.getElementById('form')
 
+function getApiBase() {
+    const meta = document.querySelector('meta[name="api-base"]');
+    return meta && meta.content ? meta.content.replace(/\/$/, "") : "";
+}
+
 form.addEventListener("submit", async(e) => {
 e.preventDefault();
 const email=document.getElementById('email').value;
@@ -14,7 +19,11 @@ if(pass_diary.length <=6 ){
     return
 }
 
-const apiBase = window.location.origin;
+const apiBase = getApiBase();
+if (!apiBase) {
+    alert("Backend is not configured yet.");
+    return;
+}
 const res = await fetch(`${apiBase}/frontend/create_account`, {
     method: "POST",
     headers: { "Content-Type": "application/json" },

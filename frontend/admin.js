@@ -17,6 +17,11 @@ const ADMIN_EMAIL = "indhumathi93428@gmail.com";
 const ADMIN_PASS = "indhu123456";
 const SESSION_KEY = "walpsto_admin_session";
 
+function getApiBase() {
+    const meta = document.querySelector('meta[name="api-base"]');
+    return meta && meta.content ? meta.content.replace(/\/$/, "") : "";
+}
+
 function showDashboard() {
     if (loginCard) loginCard.classList.add("hidden");
     if (dashboard) dashboard.classList.remove("hidden");
@@ -36,7 +41,13 @@ if (sessionStorage.getItem(SESSION_KEY) === "true") {
 
 async function loadAdminData() {
     try {
-        const apiBase = window.location.origin;
+        const apiBase = getApiBase();
+        if (!apiBase) {
+            if (feedbackList) {
+                feedbackList.innerHTML = "<li><p class=\"feedback-message\">Backend not configured yet.</p></li>";
+            }
+            return;
+        }
         const [statsRes, feedbackRes] = await Promise.all([
             fetch(`${apiBase}/frontend/admin/stats`),
             fetch(`${apiBase}/frontend/admin/feedback`)

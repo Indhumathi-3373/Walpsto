@@ -3,7 +3,13 @@ const files = document.getElementById('files');
 const dropdown = document.getElementById('dropdown');
 const menuButton = document.getElementById('menu-button');
 
-const apiBase = window.location.origin;
+function getApiBase() {
+  const meta = document.querySelector('meta[name="api-base"]');
+  return meta && meta.content ? meta.content.replace(/\/$/, "") : "";
+}
+
+const apiBase = getApiBase();
+const hasApi = Boolean(apiBase);
 
 if (menuButton && dropdown) {
   menuButton.addEventListener('click', () => {
@@ -56,11 +62,19 @@ function renderDoc(doc) {
 
   openBtn.addEventListener('click', (e) => {
     e.stopPropagation();
+    if (!hasApi) {
+      alert('Backend is not configured yet.');
+      return;
+    }
     window.open(`${apiBase}${doc.fileUrl}`, '_blank');
   });
 
   delBtn.addEventListener('click', async (e) => {
     e.stopPropagation();
+    if (!hasApi) {
+      alert('Backend is not configured yet.');
+      return;
+    }
     await fetch(`${apiBase}/frontend/documents/${doc._id}`, {
       method: 'DELETE',
       credentials: 'include'
@@ -71,6 +85,12 @@ function renderDoc(doc) {
 
 async function loadDocs() {
   files.innerHTML = '';
+  if (!hasApi) {
+    if (files) {
+      files.innerHTML = '<p class="empty-state">Backend not configured yet.</p>';
+    }
+    return;
+  }
   try {
     const res = await fetch(`${apiBase}/frontend/documents`, { credentials: 'include' });
     const data = await res.json();
@@ -83,12 +103,20 @@ async function loadDocs() {
 }
 
 plus.addEventListener('click', () => {
+  if (!hasApi) {
+    alert('Backend is not configured yet.');
+    return;
+  }
   fileInput.value = '';
   fileInput.click();
 });
 
 fileInput.addEventListener('change', async () => {
   if (!fileInput.files.length) return;
+  if (!hasApi) {
+    alert('Backend is not configured yet.');
+    return;
+  }
   const formData = new FormData();
   formData.append('file', fileInput.files[0]);
 

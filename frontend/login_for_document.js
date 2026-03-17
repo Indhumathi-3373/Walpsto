@@ -4,6 +4,11 @@ const passinp = document.getElementById("input1")
 const errormsg = document.getElementById("error")
 const errormsg2 = document.getElementById("error1")
 
+function getApiBase() {
+    const meta = document.querySelector('meta[name="api-base"]');
+    return meta && meta.content ? meta.content.replace(/\/$/, "") : "";
+}
+
 form.addEventListener("submit", async (e) => {
     e.preventDefault();
 
@@ -20,7 +25,11 @@ form.addEventListener("submit", async (e) => {
     } else {
         errormsg2.style.display = "none"
     }
-        const apiBase = window.location.origin;
+        const apiBase = getApiBase();
+        if (!apiBase) {
+            alert("Backend is not configured yet.");
+            return;
+        }
         const res = await fetch(`${apiBase}/frontend/loginfordocument`,{
             method: "POST",
             headers: { "Content-Type": "application/json" },

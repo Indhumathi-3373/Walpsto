@@ -4,6 +4,11 @@ var passinp=document.getElementById("password")
 const errormsg=document.getElementById("error")
 const errormsg2=document.getElementById("error1")
 
+function getApiBase() {
+    const meta = document.querySelector('meta[name="api-base"]');
+    return meta && meta.content ? meta.content.replace(/\/$/, "") : "";
+}
+
 const emailRegex=/^[^\\s@]+@[^\\s@]+\\. [^\\s@]+$/;
 form.addEventListener("submit",async(e)=>{
     const email=emailinp.value.trim()
@@ -22,7 +27,11 @@ form.addEventListener("submit",async(e)=>{
 
     //sending details to backend
 
-    const apiBase = window.location.origin;
+    const apiBase = getApiBase();
+    if (!apiBase) {
+        alert("Backend is not configured yet.");
+        return;
+    }
     const res=await fetch(`${apiBase}/frontend/loginfordiary`,{
         method:"POST",
         headers:{"content-type":"application/json"},

@@ -2,6 +2,11 @@ const fName = document.getElementById("f_name");
 const feedback = document.getElementById("f_feed");
 const submit = document.getElementById("f_sub");
 
+function getApiBase() {
+    const meta = document.querySelector('meta[name="api-base"]');
+    return meta && meta.content ? meta.content.replace(/\/$/, "") : "";
+}
+
 if (submit) {
     submit.addEventListener("click", async () => {
         if (!fName.value || !feedback.value) {
@@ -9,7 +14,11 @@ if (submit) {
             return;
         }
         try {
-            const apiBase = window.location.origin;
+            const apiBase = getApiBase();
+            if (!apiBase) {
+                alert("Backend is not configured yet.");
+                return;
+            }
             const res = await fetch(`${apiBase}/frontend/feedback`, {
                 method: "POST",
                 headers: { "Content-Type": "application/json" },

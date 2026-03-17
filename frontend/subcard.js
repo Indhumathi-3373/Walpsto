@@ -7,7 +7,13 @@ const card = document.getElementById("cards");
 const btn2 = document.querySelector(".add-btn");
 const btn = document.getElementById("close");
 
-const apiBase = window.location.origin;
+function getApiBase() {
+  const meta = document.querySelector('meta[name="api-base"]');
+  return meta && meta.content ? meta.content.replace(/\/$/, "") : "";
+}
+
+const apiBase = getApiBase();
+const hasApi = Boolean(apiBase);
 let editingId = null;
 
 function renderEntry(entry) {
@@ -43,6 +49,10 @@ function renderEntry(entry) {
 
   del.addEventListener("click", async () => {
     try {
+      if (!hasApi) {
+        alert("Backend is not configured yet.");
+        return;
+      }
       await fetch(`${apiBase}/frontend/diary/${entry._id}`, {
         method: "DELETE",
         credentials: "include"
@@ -64,6 +74,12 @@ function renderEntry(entry) {
 
 async function loadEntries() {
   subcard.innerHTML = "";
+  if (!hasApi) {
+    if (subcard) {
+      subcard.innerHTML = '<p class="empty-state">Backend not configured yet.</p>';
+    }
+    return;
+  }
   try {
     const res = await fetch(`${apiBase}/frontend/diary`, { credentials: "include" });
     const data = await res.json();
@@ -76,6 +92,10 @@ async function loadEntries() {
 }
 
 btn2.addEventListener("click", () => {
+  if (!hasApi) {
+    alert("Backend is not configured yet.");
+    return;
+  }
   editingId = null;
   date.value = "";
   day.value = "";
@@ -88,6 +108,10 @@ btn.addEventListener("click", () => {
 });
 
 save.addEventListener("click", async () => {
+  if (!hasApi) {
+    alert("Backend is not configured yet.");
+    return;
+  }
   if (input.value.trim() === "" || date.value.trim() === "" || day.value.trim() === "") {
     alert("Please fill all the fields");
     return;
