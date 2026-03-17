@@ -4,7 +4,13 @@ const submit = document.getElementById("f_sub");
 
 function getApiBase() {
     const meta = document.querySelector('meta[name="api-base"]');
-    return meta && meta.content ? meta.content.replace(/\/$/, "") : "";
+    const raw = meta && meta.content ? meta.content.trim() : "";
+    const cleaned = raw ? raw.replace(/\/$/, "") : "";
+    if (cleaned) return cleaned;
+    if (window.location.protocol === "http:" || window.location.protocol === "https:") {
+        return window.location.origin;
+    }
+    return "";
 }
 
 if (submit) {

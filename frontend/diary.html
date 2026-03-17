@@ -21,7 +21,7 @@
         <button class="menu-btn" type="button">&#9776;</button>
         <div class="menu-panel">
           <a href="index.html">Home</a>
-          <a href="#section2">About Us</a>
+          <a href="index.html#section2">About Us</a>
           <a id="logout-link" href="#">Logout</a>
         </div>
       </div>
@@ -68,6 +68,16 @@
     const menu = document.querySelector(".menu");
     const menuBtn = document.querySelector(".menu-btn");
     const menuPanel = document.querySelector(".menu-panel");
+    function getApiBase() {
+      const meta = document.querySelector('meta[name="api-base"]');
+      const raw = meta && meta.content ? meta.content.trim() : "";
+      const cleaned = raw ? raw.replace(/\/$/, "") : "";
+      if (cleaned) return cleaned;
+      if (window.location.protocol === "http:" || window.location.protocol === "https:") {
+        return window.location.origin;
+      }
+      return "";
+    }
 
     if (menuBtn && menuPanel) {
       menuBtn.addEventListener("click", (e) => {
@@ -86,8 +96,7 @@
     if (logoutLink) {
       logoutLink.addEventListener("click", (e) => {
         e.preventDefault();
-        const apiMeta = document.querySelector('meta[name="api-base"]');
-        const apiBase = apiMeta && apiMeta.content ? apiMeta.content.replace(/\/$/, "") : "";
+        const apiBase = getApiBase();
         if (!apiBase) {
           window.location.href = "index.html";
           return;

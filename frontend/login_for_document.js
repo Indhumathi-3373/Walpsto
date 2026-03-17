@@ -6,7 +6,13 @@ const errormsg2 = document.getElementById("error1")
 
 function getApiBase() {
     const meta = document.querySelector('meta[name="api-base"]');
-    return meta && meta.content ? meta.content.replace(/\/$/, "") : "";
+    const raw = meta && meta.content ? meta.content.trim() : "";
+    const cleaned = raw ? raw.replace(/\/$/, "") : "";
+    if (cleaned) return cleaned;
+    if (window.location.protocol === "http:" || window.location.protocol === "https:") {
+        return window.location.origin;
+    }
+    return "";
 }
 
 form.addEventListener("submit", async (e) => {

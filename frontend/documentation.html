@@ -20,7 +20,7 @@
         <button id="menu-button" class="btn btn-ghost" type="button">Menu</button>
         <div id="dropdown" class="dropdown hidden">
           <a href="index.html">Home</a>
-          <a href="#section2">About us</a>
+          <a href="index.html#section2">About us</a>
           <a id="logout-link" href="#">Logout</a>
         </div>
       </div>
@@ -38,12 +38,21 @@
 
   <script src="files.js"></script>
   <script>
+    function getApiBase() {
+      const meta = document.querySelector('meta[name="api-base"]');
+      const raw = meta && meta.content ? meta.content.trim() : "";
+      const cleaned = raw ? raw.replace(/\/$/, "") : "";
+      if (cleaned) return cleaned;
+      if (window.location.protocol === "http:" || window.location.protocol === "https:") {
+        return window.location.origin;
+      }
+      return "";
+    }
     const logoutLink = document.getElementById("logout-link");
     if (logoutLink) {
       logoutLink.addEventListener("click", (e) => {
         e.preventDefault();
-        const apiMeta = document.querySelector('meta[name="api-base"]');
-        const apiBase = apiMeta && apiMeta.content ? apiMeta.content.replace(/\/$/, "") : "";
+        const apiBase = getApiBase();
         if (!apiBase) {
           window.location.href = "index.html";
           return;

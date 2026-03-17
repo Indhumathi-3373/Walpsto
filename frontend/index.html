@@ -131,45 +131,52 @@
 
     <script src="feedback.js"></script>
     <script>
-        const apiMeta = document.querySelector('meta[name="api-base"]');
-        const apiBase = apiMeta && apiMeta.content ? apiMeta.content.replace(/\/$/, "") : "";
-        if (!apiBase) {
-            // No backend configured for this static deploy.
-            return;
+        function getApiBase() {
+            const meta = document.querySelector('meta[name="api-base"]');
+            const raw = meta && meta.content ? meta.content.trim() : "";
+            const cleaned = raw ? raw.replace(/\/$/, "") : "";
+            if (cleaned) return cleaned;
+            if (window.location.protocol === "http:" || window.location.protocol === "https:") {
+                return window.location.origin;
+            }
+            return "";
         }
-        fetch(`${apiBase}/frontend/session`, { credentials: "include" })
-            .then((res) => res.json())
-            .then((data) => {
-                if (!data || !data.authenticated) return;
-                const scopes = (data.user && Array.isArray(data.user.scopes))
-                    ? data.user.scopes
-                    : (data.user && data.user.scope ? [data.user.scope] : []);
-                const diaryCta = document.getElementById("diary-cta");
-                const diaryCardCta = document.getElementById("diary-card-cta");
-                const docCta = document.getElementById("doc-cta");
-                const docCardCta = document.getElementById("doc-card-cta");
-                if (scopes.includes("diary")) {
-                    if (diaryCta) {
-                        diaryCta.textContent = "Explore Now";
-                        diaryCta.href = "diary.html";
+        const apiBase = getApiBase();
+        if (apiBase) {
+            fetch(`${apiBase}/frontend/session`, { credentials: "include" })
+                .then((res) => res.json())
+                .then((data) => {
+                    if (!data || !data.authenticated) return;
+                    const scopes = (data.user && Array.isArray(data.user.scopes))
+                        ? data.user.scopes
+                        : (data.user && data.user.scope ? [data.user.scope] : []);
+                    const diaryCta = document.getElementById("diary-cta");
+                    const diaryCardCta = document.getElementById("diary-card-cta");
+                    const docCta = document.getElementById("doc-cta");
+                    const docCardCta = document.getElementById("doc-card-cta");
+                    if (scopes.includes("diary")) {
+                        if (diaryCta) {
+                            diaryCta.textContent = "Explore Now";
+                            diaryCta.href = "diary.html";
+                        }
+                        if (diaryCardCta) {
+                            diaryCardCta.textContent = "Explore Now";
+                            diaryCardCta.href = "diary.html";
+                        }
                     }
-                    if (diaryCardCta) {
-                        diaryCardCta.textContent = "Explore Now";
-                        diaryCardCta.href = "diary.html";
+                    if (scopes.includes("document")) {
+                        if (docCta) {
+                            docCta.textContent = "Explore Now";
+                            docCta.href = "documentation.html";
+                        }
+                        if (docCardCta) {
+                            docCardCta.textContent = "Explore Now";
+                            docCardCta.href = "documentation.html";
+                        }
                     }
-                }
-                if (scopes.includes("document")) {
-                    if (docCta) {
-                        docCta.textContent = "Explore Now";
-                        docCta.href = "documentation.html";
-                    }
-                    if (docCardCta) {
-                        docCardCta.textContent = "Explore Now";
-                        docCardCta.href = "documentation.html";
-                    }
-                }
-            })
-            .catch(() => {});
+                })
+                .catch(() => {});
+        }
     </script>
 </body>
 

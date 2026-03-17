@@ -8,8 +8,14 @@ const btn2 = document.querySelector(".add-btn");
 const btn = document.getElementById("close");
 
 function getApiBase() {
-  const meta = document.querySelector('meta[name="api-base"]');
-  return meta && meta.content ? meta.content.replace(/\/$/, "") : "";
+    const meta = document.querySelector('meta[name="api-base"]');
+    const raw = meta && meta.content ? meta.content.trim() : "";
+    const cleaned = raw ? raw.replace(/\/$/, "") : "";
+    if (cleaned) return cleaned;
+    if (window.location.protocol === "http:" || window.location.protocol === "https:") {
+        return window.location.origin;
+    }
+    return "";
 }
 
 const apiBase = getApiBase();

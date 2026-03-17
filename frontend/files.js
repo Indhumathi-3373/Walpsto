@@ -4,8 +4,14 @@ const dropdown = document.getElementById('dropdown');
 const menuButton = document.getElementById('menu-button');
 
 function getApiBase() {
-  const meta = document.querySelector('meta[name="api-base"]');
-  return meta && meta.content ? meta.content.replace(/\/$/, "") : "";
+    const meta = document.querySelector('meta[name="api-base"]');
+    const raw = meta && meta.content ? meta.content.trim() : "";
+    const cleaned = raw ? raw.replace(/\/$/, "") : "";
+    if (cleaned) return cleaned;
+    if (window.location.protocol === "http:" || window.location.protocol === "https:") {
+        return window.location.origin;
+    }
+    return "";
 }
 
 const apiBase = getApiBase();
