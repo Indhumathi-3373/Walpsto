@@ -17,24 +17,49 @@ Walpsto is a personal wallet web application for securely storing documents and 
 ## Project Structure
 - `frontend/` Static pages and scripts (served by the backend in production)
 - `backend/` Express server, routes, and MongoDB models
-- `images/` UI assets
+- `frontend/public/images/` UI assets
 
 ## Setup
 1. Start MongoDB locally (default connection is `mongodb://localhost:27017/create_account`).
-2. Install backend dependencies:
+2. Copy `.env.example` to `.env` and fill in your local values.
+3. Install backend dependencies:
    - `cd backend`
    - `npm install`
-3. Start the backend server:
+4. Start the backend server:
    - `npm start`
-4. Open the app:
+5. Open the app:
    - `http://localhost:8000` (served from `frontend/index.html`)
 
+## Deployment
+- Recommended split deployment:
+  - Deploy `backend/` as a Node web service on Render, Railway, or similar.
+  - Deploy `frontend/` as a static site on Vercel.
+- Backend environment variables:
+  - `MONGODB_URI`
+  - `SESSION_SECRET`
+  - `CLIENT_ORIGIN=https://your-frontend-domain`
+  - `NODE_ENV=production`
+- Frontend API base:
+  - Update each page's `<meta name="api-base">` to your deployed backend URL, or keep it empty if the frontend is served by the same origin as the API.
+- Uploads:
+  - The current document upload flow writes files to `backend/uploads/`.
+  - This works on traditional servers, but ephemeral platforms may wipe uploaded files between deploys/restarts.
+  - For long-term production use, move uploads to object storage such as Cloudinary, S3, or UploadThing.
+- Health check:
+  - The backend now exposes `GET /health` for deployment health probes.
+
 ## Environment
-You can optionally set:
-- `SESSION_SECRET` to override the default development secret.
-- `MONGODB_URI` to point at a production Mongo instance.
-- `PORT` to change the server port (default `8000`).
-- `CLIENT_ORIGIN` (comma-separated) if you serve the frontend separately and need CORS.
+Use `.env.example` as the template. Do not commit real secrets.
+
+- `SESSION_SECRET` overrides the default development secret.
+- `MONGODB_URI` points at your MongoDB instance.
+- `PORT` changes the server port (default `8000`).
+- `CLIENT_ORIGIN` is a comma-separated allowlist when the frontend is deployed separately.
+- `NODE_ENV=production` enables secure production cookie settings.
+
+## Deployment Notes
+- `.gitignore` now excludes `.env`, `backend/node_modules/`, and `backend/uploads/`.
+- If `.env` was committed previously, rotate those secrets in your provider dashboards before deploying.
 
 ## API Overview
 All routes are mounted under `/frontend` in the server.
