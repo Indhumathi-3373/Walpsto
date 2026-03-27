@@ -2,3 +2,4 @@
 backend/node_modules/
 backend/uploads/
 npm-debug.log*
+node_modules/
