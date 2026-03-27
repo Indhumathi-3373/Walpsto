@@ -58,8 +58,7 @@ Use `.env.example` as the template. Do not commit real secrets.
 - `NODE_ENV=production` enables secure production cookie settings.
 
 ## Deployment Notes
-- `.gitignore` now excludes `.env`, `backend/node_modules/`, and `backend/uploads/`.
-- If `.env` was committed previously, rotate those secrets in your provider dashboards before deploying.
+- `.gitignore` now excludes `.env`, `backend/node_modules/`, and `backend/uploads/`
 
 ## API Overview
 All routes are mounted under `/frontend` in the server.
